@@ -42,14 +42,21 @@ ohif:metadata
 ohif:google-cloud
 ohif:demo-mode
 ohif:user-oidc
+ohif:dicom-services
 ohif:measurement-table
 
+twbs:bootstrap
 fortawesome:fontawesome
 momentjs:moment@2.15.1
 aldeed:simple-schema          # Third party package to deal with schemas
 aldeed:template-extension
+gilbertwat:bootstrap3-daterangepicker
 johdirr:meteor-git-rev
 cultofcoders:persistent-session
+u2622:persistent-session@0.4.4
 shell-server@0.3.1
 underscore
 meteortesting:mocha
+tap:i18n
+rzymek:moment-locales
+
