@@ -1,6 +1,6 @@
 <template name="seriesDetailsTable">
     {{#unless selectedStudies.length}}
-        <p align="center">Series details not found</p>
+        <p align="center">{{_ 'seriesDetails.notFound'}}</p>
     {{/unless}}
     {{#each selectedStudies}}
         <div class="selectedStudyContainer">
@@ -9,7 +9,7 @@
                 <tr>
                     <td class="center patientID">
                         <div>
-                            <span>Patient ID</span>
+                            <span>{{_ 'seriesDetails.idPatient'}}</span>
                         </div>
                         <input type="text"
                                class="form-control"
@@ -20,7 +20,7 @@
                     </td>
                     <td class="patientName">
                         <div>
-                            <span>Patient Name</span>
+                            <span>{{_ 'seriesDetails.namePatient'}}</span>
                         </div>
                         <input type="text"
                                class="form-control"
@@ -31,7 +31,7 @@
                     </td>
                     <td class="accessionNumber">
                         <div>
-                            <span>Accession Number</span>
+                            <span>{{_ 'seriesDetails.accesionNumber'}}</span>
                         </div>
                         <input type="text"
                                class="form-control"
@@ -44,7 +44,7 @@
                 <tr>
                     <td class="studyDescription">
                         <div>
-                            <span>Study Description</span>
+                            <span>{{_ 'seriesDetails.descripStudy'}}</span>
                         </div>
                         <input type="text"
                                class="form-control"
@@ -55,7 +55,7 @@
                     </td>
                     <td class="studyDate">
                         <div>
-                            <span>Study Date</span>
+                            <span>{{_ 'seriesDetails.dateStudy'}}</span>
                         </div>
                         <input type="text"
                                class="form-control"
@@ -73,10 +73,10 @@
             <table class="table table-responsive tblSeriesDetails">
                 <thead>
                 <tr>
-                    <th class="header">Number</th>
-                    <th class="header">Modality</th>
-                    <th class="header">Description</th>
-                    <th class="header">Instances</th>
+                    <th class="header">{{_ 'seriesDetails.number'}}</th>
+                    <th class="header">{{_ 'seriesDetails.modality'}}</th>
+                    <th class="header">{{_ 'seriesDetails.descrip'}}</th>
+                    <th class="header">{{_ 'seriesDetails.instances'}}</th>
                 </tr>
                 </thead>
 

@@ -67,9 +67,10 @@
                 <div id="editProtocol" class="protocolEditorSection">
                     <div class="row">
                         <div class="col-xs-12">
-                            <p>Created: {{formatJSDate createdDate}}{{ #if createdBy }} by {{getUsername createdBy}}{{/if}}</p>
-                            <p>Last modified: {{formatJSDate modifiedDate}}{{ #if createdBy }} by {{getUsername modifiedBy}}{{/if}}</p>
-                            <p>Number of Priors Referenced: {{numberOfPriorsReferenced}}</p>
+                            <p>{{_ 'hanging.created'}}: {{formatJSDate createdDate}}{{ #if createdBy }} by {{getUsername createdBy}}{{/if}}</p>
+                            <p>{{_ 'hanging.lastModified'}}: {{formatJSDate modifiedDate}}{{ #if createdBy }} by {{getUsername modifiedBy}}{{/if}}</p>
+                            <p>{{_ 'hanging.numberReferenced'}}: {{numberOfPriorsReferenced}}</p>
+
                         </div>
                     </div>
                     <div class="row">

@@ -2,7 +2,7 @@
     <table class="ruleTable table">
         <thead>
         <tr>
-            <th>Constraint</th>
+            <th>{{_ 'hanging.constraint'}}</th>
             <th>Wt.</th>
             <th>Req.</th>
         </tr>
@@ -15,7 +15,7 @@
                 <i class="fa fa-pencil editRule"></i>
                 <i class="fa fa-trash deleteRule"></i>
                 {{displayConstraint attribute constraint ../attributes}}
-                {{ #unless rulePassed }}<small class="failWarning">Fail</small>{{ /unless }}
+                {{ #unless rulePassed }}<small class="failWarning">{{_ 'hanging.fail'}}</small>{{ /unless }}
             </td>
             <td><input class="ruleWeight" type="number" value={{weight}} min="1" step="1" max="1000"/></td>
             <td><input class="ruleRequired" type="checkbox" {{valueIf required "checked" ''}}/></td>
@@ -26,7 +26,7 @@
     </table>
     <div class="addRuleContainer">
         <span class="addRule">
-            Add New Constraint <i class="fa fa-plus-circle"></i>
+            {{_ 'hanging.addNewConst'}} <i class="fa fa-plus-circle"></i>
         </span>
     </div>
 </template>

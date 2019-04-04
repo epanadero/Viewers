@@ -4,6 +4,7 @@ import { Random } from 'meteor/random';
 
 import { OHIF } from 'meteor/ohif:core';
 import 'meteor/ohif:viewerbase';
+import { TAPi18n } from 'meteor/tap:i18n';
 
 /**
  * Add an array index swapping function so we can swap stages more easily
@@ -102,12 +103,13 @@ Template.stageSortable.helpers({
 
             // Return the label for the new stage,
             // e.g. "New Stage 1 (created a few seconds ago)"
-            return 'New Stage ' + newStageNumber + ' (created ' + dateCreatedFromNow + ')';
+            return TAPi18n.__('hanging.newStage') + newStageNumber + ' ('+TAPi18n.__('hanging.created')+ ' ' + dateCreatedFromNow + ')';
+
         }
 
         // If the stage is not new, label it by the index it held in the stages array
         // at the previous saved point
-        return 'Stage ' + ++stageIndex;
+        return TAPi18n.__('hanging.stage') + ++stageIndex;
     },
     /**
      * Check if a later stage exists for the user to switch to
@@ -193,8 +195,8 @@ Template.stageSortable.events({
         var stageId = this.id;
 
         var options = {
-            title: 'Remove Protocol Stage',
-            text: 'Are you sure you would like to remove this Protocol Stage? This cannot be reversed.'
+            title: TAPi18n.__('hanging.removeStage'),
+            text: TAPi18n.__('hanging.confirmRemoveStage')
         };
 
         OHIF.viewerbase.dialogUtils.showConfirmDialog(function() {

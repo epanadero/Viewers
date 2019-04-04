@@ -2,10 +2,10 @@
     <div id="stageSortingContainer">
         <div class="moveStageButtons">
             <a class="moveStageUp noselect"  disabled="{{ #unless isPreviousAvailable }}true{{ /unless }}">
-                Move Stage Up <i class="fa fa-chevron-up"></i>
+                {{_ 'hanging.moveStageUp'}} <i class="fa fa-chevron-up"></i>
             </a>
             <a class="moveStageDown noselect" disabled="{{ #unless isNextAvailable }}true{{ /unless }}">
-                Move Stage Down <i class="fa fa-chevron-down"></i>
+                {{_ 'hanging.moveStageDown'}} <i class="fa fa-chevron-down"></i>
             </a>
         </div>
         <div id="stageSortable" class="sortable">
@@ -23,7 +23,7 @@
         </div>
         <div class="addStage">
             <span id="addStage">
-                Create New Stage <i class="fa fa-plus-circle"></i>
+                {{_ 'hanging.createNewStage'}} <i class="fa fa-plus-circle"></i>
             </span>
         </div>
     </div>

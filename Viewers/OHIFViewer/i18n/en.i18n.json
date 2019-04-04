@@ -1,0 +1,43 @@
+{
+  "textLogo" : "Kanteron DICOM Viewer",
+  "studyList": {
+    "name": "Name",
+    "date": "Date",
+    "descViewport" : "Upon selecting a Viewport, this section will show a list of rules that can be used to determine which images will populate the specified Viewport. You can specify these rules to be evaluated at the study, series, or image level.",
+    "locked" : "Locked",
+    "saveChanges" : "Save Changes",
+    "lastSaved" : "Last saved",
+    "lastSaved" : "Last saved",
+    "addNewConst": "Add New Constraint",
+    "constraint" : "Constraint",
+    "fail" : "fail",
+    "createNewStage" : "Create New Stage",
+    "stage" : "Stage ",
+    "moveStageUp": "Move Stage Up",
+    "moveStageDown" : "Move Stage Down",
+    "newStage" : "New Stage ",
+    "removeStage" : "Remove Protocol Stage",
+    "confirmRemoveStage" : "Are you sure you would like to remove this Protocol Stage? This cannot be reversed."
+
+
+
+  },
+  "options" :{
+    "notFound" : "Series details not found",
+    "idPatient" : "Patient ID",
+    "namePatient" : "Patient Name",
+    "accesionNumer" : "Accession Number",
+    "accesionNumber" : "Accession Number",
+    "descripStudy" : "Study Description",
+    "dateStudy" : "Study Date",
+    "number" : "Number",
+    "modality" : "Modality",
+    "descrip" : "Description",
+    "instances" : "Instances",
+    "instances" : "Instances",
+    "loading" : "Loading...",
+    "errorLoading" : "Error Loading Image",
+    "errorOcurred" : "An error has occurred."
+  }
+
+}
