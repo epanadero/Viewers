@@ -1,6 +1,26 @@
 import { Template } from 'meteor/templating';
+import { $ } from 'meteor/jquery';
+
 import { OHIF } from 'meteor/ohif:core';
 import 'meteor/ohif:viewerbase';
+import { TAPi18n } from 'meteor/tap:i18n';
+
+function isThereSeries(studies) {
+    if (studies.length === 1) {
+        const study = studies[0];
+
+        if (study.seriesList && study.seriesList.length > 1) {
+            return true;
+        }
+
+        if (study.displaySets && study.displaySets.length > 1) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 
 Template.toolbarSection.onCreated(() => {
     const instance = Template.instance();
@@ -34,11 +54,10 @@ Template.toolbarSection.helpers({
             key: 'rightSidebar',
             value: instance.data.state,
             options: [{
-                value: 'measurements',
-                svgLink: '/packages/ohif_viewerbase/assets/icons.svg#icon-measurements-lesions',
-                svgWidth: 18,
-                svgHeight: 10,
-                bottomLabel: 'Measurements'
+                value: 'hangingprotocols',
+                iconClasses: 'fa fa-cog',
+                bottomLabel: TAPi18n.__('hanging.hanging')
+
             }]
         };
     },
