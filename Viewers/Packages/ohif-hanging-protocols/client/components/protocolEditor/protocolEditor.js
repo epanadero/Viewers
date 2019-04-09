@@ -6,6 +6,7 @@ import { $ } from 'meteor/jquery';
 
 import { OHIF } from 'meteor/ohif:core';
 import 'meteor/ohif:viewerbase';
+import { TAPi18n } from 'meteor/tap:i18n';
 
 /**
  * Updates the Hanging Protocol Select2 Input
@@ -190,8 +191,8 @@ Template.protocolEditor.events({
         }
 
         // Define some details for the text entry dialog
-        var title = 'Rename Protocol';
-        var instructions = 'Enter a new name';
+        var title =  TAPi18n.__('hanging.renameProtocol');
+        var instructions = TAPi18n.__('hanging.newName');
         var currentValue = selectedProtocol.name;
 
         // Open the text entry dialog with the details above
@@ -313,8 +314,8 @@ Template.protocolEditor.events({
         var protocol = selectedProtocol.createClone();
 
         // Define some details for the text entry dialog
-        var title = 'Save Protocol As';
-        var instructions = 'Enter a new name';
+        var title = TAPi18n.__('hanging.saveProtocolAs');
+        var instructions =  TAPi18n.__('hanging.newName');
         var currentValue = protocol.name;
 
         // Open the text entry dialog with the details above
@@ -368,8 +369,8 @@ Template.protocolEditor.events({
         }
 
         var options = {
-            title: 'Delete Protocol',
-            text: 'Are you sure you would like to remove this Protocol? This cannot be reversed.'
+            title: TAPi18n.__('hanging.deleteProtocol'),
+            text: TAPi18n.__('hanging.cofirmDeleteProtocol')
         };
 
         OHIF.viewerbase.dialogUtils.showConfirmDialog(() => {

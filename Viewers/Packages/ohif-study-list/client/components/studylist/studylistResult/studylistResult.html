@@ -15,7 +15,7 @@
                 <tr>
                     <th class="patientName">
                         <div id="_patientName" class="sortingCell">
-                            <span>Patient Name</span>
+                            <span>{{_ 'studyList.name'}}</span>
                             <i class="{{sortingColumnsIcons.patientName}}">&nbsp;</i>
                         </div>
                         <input type="text"
@@ -24,7 +24,7 @@
                     </th>
                     <th class="patientId">
                         <div id="_patientId" class="sortingCell">
-                            <span>MRN</span>
+                            <span>{{_ 'studyList.MRN'}}</span>
                             <i class="{{sortingColumnsIcons.patientId}}">&nbsp;</i>
                         </div>
                         <input type="text"
@@ -33,7 +33,7 @@
                     </th>
                     <th class="accessionNumber">
                         <div id="_accessionNumber" class="sortingCell ">
-                            <span>Accession #</span>
+                            <span>{{_ 'studyList.accession'}}</span>
                             <i class="{{sortingColumnsIcons.accessionNumber}}">&nbsp;</i>
                         </div>
                         <input type="text"
@@ -42,7 +42,7 @@
                     </th>
                     <th class="studyDate">
                         <div id="_studyDate" class="sortingCell">
-                            <span>Study Date</span>
+                            <span>{{_ 'studyList.studyDate'}}</span>
                             <i class="{{sortingColumnsIcons.studyDate}}">&nbsp;</i>
                         </div>
                         <input type="text"
@@ -52,7 +52,7 @@
                     </th>
                     <th class="modalities">
                         <div id="_modalities" class="sortingCell">
-                            <span>Modality</span>
+                            <span>{{_ 'studyList.modality'}}</span>
                             <i class="{{sortingColumnsIcons.modalities}}">&nbsp;</i>
                         </div>
                         <input type="text"
@@ -61,7 +61,7 @@
                     </th>
                     <!-- <th class="studyDescription">
                         <div id="_studyDescription" class="sortingCell">
-                            <span>Study Description</span>
+                            <span>{{_ 'studyList.studyDescription'}}</span>
                             <i class="{{sortingColumnsIcons.studyDescription}}">&nbsp;</i>
                         </div>
                         <input type="text"
@@ -84,10 +84,10 @@
             {{>loadingText}}
         {{else}}
             {{#if session "serverError"}}
-                <div class="notFound">There was an error fetching studies</div>
+                <div class="notFound">{{_ 'studyList.errorFindStudy'}}</div>
             {{else}}
                 {{#unless numberOfStudies}}
-                    <div class="notFound">No matching results</div>
+                    <div class="notFound">{{_ 'studyList.noFindStudy'}}</div>
                 {{/unless}}
             {{/if}}
         {{/if}}

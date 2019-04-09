@@ -1,10 +1,11 @@
 <template name="ohifViewer">
-    {{#header brandHref='http://ohif.org' headerClasses=instance.headerClasses}}
+    {{#header headerClasses=instance.headerClasses}}
         {{#section 'brand'}}
-            <svg class="logo-image">
-                <use xlink:href={{absoluteUrl "packages/ohif_viewerbase/assets/icons.svg#icon-ohif-logo"}}></use>
-            </svg>
-            <div class="logo-text">{{_ 'textLogo'}}</div>
+            <!--<svg class="logo-image">-->
+               <!-- <use xlink:href={{absoluteUrl "packages/ohif_viewerbase/assets/icons.svg#icon-ohif-logo"}}></use>-->
+            <!--</svg>-->
+            <img src={{absoluteUrl "/images/logo.png"}}>
+>             <div class="logo-text">Kanteron DICOM Viewer</div>
         {{/section}}
         {{#section 'headerAfterBrand'}}
             {{#if studyListToggleText}}

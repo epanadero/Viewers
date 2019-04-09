@@ -4,6 +4,7 @@ import { Session } from 'meteor/session';
 import { Router } from 'meteor/clinical:router';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { OHIF } from 'meteor/ohif:core';
+import { TAPi18n } from 'meteor/tap:i18n';
 
 Template.ohifViewer.onCreated(() => {
     const instance = Template.instance();
@@ -12,7 +13,7 @@ Template.ohifViewer.onCreated(() => {
 
     const headerItems = [{
         action: () => OHIF.ui.showDialog('serverInformationModal'),
-        text: 'Server Information',
+        text: TAPi18n.__('options.serverInformation'),
         icon: 'fa fa-server fa-lg',
         separatorAfter: true
     }, {
@@ -23,12 +24,12 @@ Template.ohifViewer.onCreated(() => {
         separatorAfter: false
     }, {
         action: () => OHIF.ui.showDialog('userPreferencesDialog'),
-        text: 'Preferences',
+        text: TAPi18n.__('options.preferences'),
         icon: 'fa fa-user',
         separatorAfter: true
     }, {
         action: () => OHIF.ui.showDialog('aboutModal'),
-        text: 'About',
+        text: TAPi18n.__('options.about'),
         icon: 'fa fa-info'
     }];
 
@@ -105,10 +106,10 @@ Template.ohifViewer.helpers({
 
         if (isViewer) {
             instance.hasViewerData = true;
-            return 'Study list';
+            return TAPi18n.__('studyList.studyList');
         }
 
-        return instance.hasViewerData ? 'Back to viewer' : '';
+        return instance.hasViewerData ? TAPi18n.__('studyList.backToViewer') : ''; : '';
     },
     isStudyListReady() {
         return !!Session.get('IsStudyListReady');
