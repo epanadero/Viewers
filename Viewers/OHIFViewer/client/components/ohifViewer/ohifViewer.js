@@ -109,7 +109,7 @@ Template.ohifViewer.helpers({
             return TAPi18n.__('studyList.studyList');
         }
 
-        return instance.hasViewerData ? TAPi18n.__('studyList.backToViewer') : ''; : '';
+        return instance.hasViewerData ? TAPi18n.__('studyList.backToViewer') : ''; 
     },
     isStudyListReady() {
         return !!Session.get('IsStudyListReady');

@@ -21,6 +21,7 @@ Package.onUse(function(api) {
     api.use('silentcicero:jszip', 'client');
     api.use('aldeed:simple-schema');
     api.use('aldeed:collection2');
+    api.use(["tap:i18n"], ["client", "server"]);
 
     // Note: MomentJS appears to be required for Bootstrap3 Datepicker, but not a dependency for some reason
     api.use('momentjs:moment', 'client');

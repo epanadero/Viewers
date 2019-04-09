@@ -7,23 +7,23 @@
             </div>
             <div class="cine-controls">
                 <div class="btn-group">
-                    {{#button class='btn' action='cineFirst' title='Skip to first image' disabled=(buttonDisabled)}}
+                    {{#button class='btn' action='cineFirst' title= (_ "cine.skipFirsImage")  disabled=(buttonDisabled)}}
                         <i class="fa fa-fast-backward"></i>
                     {{/button}}
-                    {{#button class='btn' action='cinePrevious' title='Previous image' disabled=(buttonDisabled)}}
+                    {{#button class='btn' action='cinePrevious' title=(_ "cine.previousImage") disabled=(buttonDisabled)}}
                         <i class="fa fa-step-backward"></i>
                     {{/button}}
-                    {{#button class='btn' action='cineToggle' title='Play / Stop' class=(concat 'btn ' (valueIf isPlaying 'active' '')) disabled=(buttonDisabled)}}
+                    {{#button class='btn' action='cineToggle' title=(_ "cine.playStop") class=(concat 'btn ' (valueIf isPlaying 'active' '')) disabled=(buttonDisabled)}}
                         {{#if isPlaying}}
                             <i class="fa fa-fw fa-stop"></i>
                         {{else}}
                             <i class="fa fa-fw fa-play"></i>
                         {{/if}}
                     {{/button}}
-                    {{#button class='btn' action='cineNext' title='Next image' disabled=(buttonDisabled)}}
+                    {{#button class='btn' action='cineNext' title=(_ "cine.nextImage") disabled=(buttonDisabled)}}
                         <i class="fa fa-step-forward"></i>
                     {{/button}}
-                    {{#button class='btn' action='cineLast' title='Skip to last image' disabled=(buttonDisabled)}}
+                    {{#button class='btn' action='cineLast' title=(_ "cine.skipLastImage") disabled=(buttonDisabled)}}
                         <i class="fa fa-fast-forward"></i>
                     {{/button}}
                 </div>
@@ -37,10 +37,10 @@
             </div>
             <div class="cine-navigation">
                 <div class="btn-group">
-                    {{#button class='btn' disabled=(displaySetDisabled false) action='displaySetPrevious' title='Previous display set'}}
+                    {{#button class='btn' disabled=(displaySetDisabled false) action='displaySetPrevious' title=(_ "cine.previousDisplay")}}
                         <i class="fa fa-toggle-up"></i>
                     {{/button}}
-                    {{#button class='btn' disabled=(displaySetDisabled true) action='displaySetNext' title='Next display set'}}
+                    {{#button class='btn' disabled=(displaySetDisabled true) action='displaySetNext' title=(_ "cine.nextDisplay")}}
                         <i class="fa fa-toggle-down"></i>
                     {{/button}}
                 </div>

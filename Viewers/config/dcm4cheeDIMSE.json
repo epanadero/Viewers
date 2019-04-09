@@ -3,7 +3,7 @@
     "dicomWeb": [
       {
         "name": "DCM4CHEE",
-        "wadoUriRoot": "http://localhost:8080/dcm4chee-arc/aets/DCM4CHEE/wado",
+        "wadoUriRoot": "http://localhost:8080/wado/CT",
         "qidoRoot": "http://localhost:8080/dcm4chee-arc/aets/DCM4CHEE/rs",
         "wadoRoot": "http://localhost:8080/dcm4chee-arc/aets/DCM4CHEE/rs",
         "qidoSupportsIncludeField": false,

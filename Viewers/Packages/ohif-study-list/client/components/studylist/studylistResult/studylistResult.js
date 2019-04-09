@@ -5,6 +5,7 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import { moment } from 'meteor/momentjs:moment';
 import { OHIF } from 'meteor/ohif:core';
+import { TAPi18n } from 'meteor/tap:i18n';
 
 
 Session.setDefault('showLoadingText', true);
