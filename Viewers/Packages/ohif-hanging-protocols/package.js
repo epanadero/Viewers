@@ -20,7 +20,7 @@ Package.onUse(function(api) {
     api.use('natestrauser:select2@4.0.1', 'client');
     api.use('clinical:router@2.0.19');
     api.use('momentjs:moment');
-
+    api.use('tap:i18n');
     // Our custom packages
     api.use('ohif:core');
     api.use('ohif:viewerbase');

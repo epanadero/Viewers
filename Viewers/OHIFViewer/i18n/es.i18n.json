@@ -1,5 +1,10 @@
 {
     "textLogo" : "Kanteron DICOM Viewer",
+    "resetToDefaults" : "Reiniciar por defecto",
+    "close" :"Cerrar",
+    "save" : "Guardar",
+    "cancel" : "Cancelar",
+    
     "studyList": {
         "name": "Nombre",
         "date": "Fecha",
@@ -17,7 +22,23 @@
         "moveStageDown" : "Bajar Etapa",
         "newStage" : "Nueva etapa ",
         "removeStage" : "Eliminar etapa de protocolo",
-        "confirmRemoveStage" : "¿Estas seguro de que quiere eliminar la etapa de protocolo? Esto no es reversible."
+        "confirmRemoveStage" : "¿Estas seguro de que quiere eliminar la etapa de protocolo? Esto no es reversible.",
+        "renameProtocol" : "Renombrar protocolo",
+        "newName" : "Introduce un nuevo nombre",
+        "saveProtocolAs" : "Guardar protocolo como",
+        "deleteProtocol" : "Eliminar protocolo",
+        "confirmDeleteProtocol" : "¿Estas seguro de que quieres eliminar el protocolo? Esto no es reversible.",
+        "hanging" : "Protocolos de visualización",
+        "viewportSetting" : "Configuración Ventana",
+        "studyMatching" :  "Reglas Estudio",
+        "seriesMatching" : "Reglas Serie",
+        "imagesMatching" : "Reglas Imágenes",
+        "setting" : "Configuración",
+        "value" : "Valor",
+        "addDisplaySetting" : "Añadir configuración de pantalla",
+        "viewportSettingEdition" : "Editor de configuracion de ventana",
+        "showGrayScaleInverted" : "Mostrar escala de grises invertida",
+        "ruleEditor" : "Editor de reglas"
 
 
     },
@@ -30,8 +51,63 @@
         "loading" : "Cargando...",
         "errorLoading" : "Error al cargar la imagen",
         "errorOcurred" : "Ha ocurrido un error."
+        "removeAssociation" : "Eliminar asociación",
+        "associate" : "Associate"
+   
     }
+    "seriesDetails" : {
+        "title" : "Detalle de la serie",
+        "loading" : "Cargando...",
+        "errorLoading" : "Error al cargar la imagen",
+        "errorOcurred" : "Ha ocurrido un error."
+    },
 
+    "hotkeys":{
+        "defaultTool" : "Herramientas predeterminada",
+        "wwwc" : "W/L",
+        "zoom" : "Enfocar",
+        "angle" : "Angulo",
+        "dragProbe" : "Sondear punto",
+        "ellipticalRoi" :"Elliptical ROI",
+        "magnify":"Aumentar",
+        "annotate" : "Anotación",
+        "stackScroll" : "Scroll Stack",
+        "pan" : "Pan",
+        "length" : "Tamaño medida",
+        "wwwcRegion": "W/L por región",
+        "crosshairs" : "Puntero",
+        "zoomIn" : "Aumentar enfoque",
+        "zoomOut" : "Disminuir enfoque",
+        "zoomToFit" : "Zoom to Fit",
+        "invert" : "Invertir",
+        "flipH" : "Girar Horizontalmente",
+        "flipV" : "Girar Verticalmente",
+        "rotateR" : "Rotar Derecha",
+        "rotateL" : "Rotate Izquierda",
+        "resetViewport" : "Reiniciar",
+        "clearTools" : "Clear Tools",
+        "scrollDown" : "Desplazar abajo",
+        "scrollUp" : "Desplazar Arriba",
+        "scrollToFirsImage" : "Ir a la primera imagen",
+        "scrollToLastImage" : "Ir a la última imagen",
+        "previousDisplaySet" : "Serie anterior",
+        "nextDisplaySet" : "Serie siguiente",
+        "nextPanel" : "Panel siguiente",
+        "previousPanel" : "Panel anterior",
+        "toggleOverlayTags" : "Cambiar anotaciones imagen",
+        "toggleCinePlay" : "Comenar/Parar Cine",
+        "toggleCineDialog" : "Mostrar/Ocultar controles de CINE",
+        "toggleDownloadDialog" : "Mostrar/Ocultar dialogo de descarga",
+        "userPreferences" : "Preferencias de usuario",
+        "keyboardShortcuts" : "Atajos del teclado",
+        "window/level" : "Ventana/Nivel",
+        "function" : "Función",
+        "shortcut" : "Atajo",
+        "preset" : "Programar",
+        "description":"Descripción",
+        "window" : "Ventana",
+        "level" : "Nivel"
 
+}
 
 }

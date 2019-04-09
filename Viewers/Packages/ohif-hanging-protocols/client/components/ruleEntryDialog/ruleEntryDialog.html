@@ -1,7 +1,7 @@
 <template name="ruleEntryDialog">
     <div class="ruleEntryDialog dialog-animated">
         <div class="dialogHeader">
-            <h5>Rule Editor</h5>
+            <h5>{{_ 'hanging.ruleEditor'}}</h5>
         </div>
         <div class="dialogContent">
             <div class="row">
@@ -40,8 +40,9 @@
             </div>
         </div>
         <div class="dialogFooter">
-            <button id="cancel" class="btn btn-link" tabindex="1">Cancel</button>
-            <button id="save" class="btn btn-primary" tabindex="0">OK</button>
+            <button id="cancel" class="btn btn-link" tabindex="1">{{_ 'cancel'}}</button>
+            <button id="save" class="btn btn-primary" tabindex="0">{{_ 'save'}}</button>
+
         </div>
     </div>
 </template>

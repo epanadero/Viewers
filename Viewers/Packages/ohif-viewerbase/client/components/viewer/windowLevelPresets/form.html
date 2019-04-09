@@ -4,10 +4,11 @@
             <table class="full-width">
                 <thead>
                     <tr>
-                        <th class="p-x-1 text-center">Preset</th>
-                        <th class="p-x-1">Description</th>
-                        <th class="p-x-1">Window</th>
-                        <th class="p-x-1">Level</th>
+                        <th class="p-x-1 text-center">{{_ 'hotkeys.preset'}}</th>
+                        <th class="p-x-1">{{_ 'hotkeys.description'}}</th>
+                        <th class="p-x-1">{{_ 'hotkeys.window'}}</th>
+                        <th class="p-x-1">{{_ 'hotkeys.level'}}</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -23,9 +24,10 @@
             </table>
         </div>
         <div class="form-buttons clearfix">
-            {{#button class='btn btn-danger pull-left' action='resetDefaults'}}Reset to Defaults{{/button}}
-            {{#button class='btn btn-primary pull-right' action='save'}}Save{{/button}}
-            {{#button class='btn btn-secondary pull-right m-r-1' tagAttributes=(extend '' data-dismiss='modal')}}Close{{/button}}
+            {{#button class='btn btn-danger pull-left' action='resetDefaults'}}{{_ 'resetToDefaults'}}{{/button}}
+            {{#button class='btn btn-primary pull-right' action='save'}}{{_ 'save'}}{{/button}}
+            {{#button class='btn btn-secondary pull-right m-r-1' tagAttributes=(extend '' data-dismiss='modal')}}{{_ 'close'}}{{/button}}
+
         </div>
     {{/form}}
 </template>

@@ -9,9 +9,32 @@ import { switchToImageByIndex } from './switchToImageByIndex';
 import { viewportUtils } from './viewportUtils';
 import { panelNavigation } from './panelNavigation';
 import { WLPresets } from './WLPresets';
+import { TAPi18n } from 'meteor/tap:i18n';
+
+getUserLanguage = function () {
+    var localeFromBrowser = window.navigator.userLanguage || window.navigator.language;
+    var locale = 'en';
+    if (localeFromBrowser.match(/es/)) {
+        locale = 'es';
+    }
+    return locale;
+};
+
+
 
 // TODO: add this to namespace definitions
 Meteor.startup(function() {
+
+    TAPi18n.setLanguage(getUserLanguage())
+        .done(function () {
+            Session.set("showLoadingIndicator", false);
+        })
+        .fail(function (error_message) {
+            // Handle the situation
+            console.log(error_message);
+        });
+
+
     OHIF.viewer.loadIndicatorDelay = 200;
     OHIF.viewer.defaultTool = 'wwwc';
     OHIF.viewer.refLinesEnabled = true;
@@ -101,25 +124,26 @@ Meteor.startup(function() {
 
     // Register the default tool command
     OHIF.commands.register(contextName, 'defaultTool', {
-        name: 'Default Tool',
+        name: TAPi18n.__('hotkeys.defaultTool'),
         action: () => toolManager.setActiveTool(toolManager.getDefaultTool())
     });
 
     // Register the tool switching commands
     registerToolCommands({
         wwwc: 'W/L',
-        zoom: 'Zoom',
-        angle: 'Angle Measurement',
-        dragProbe: 'Pixel Probe',
-        ellipticalRoi: 'Elliptical ROI',
-        rectangleRoi: 'Rectangle ROI',
-        magnify: 'Magnify',
-        annotate: 'Annotate',
-        stackScroll: 'Scroll Stack',
-        pan: 'Pan',
-        length: 'Length Measurement',
-        wwwcRegion: 'W/L by Region',
-        crosshairs: 'Crosshairs'
+        zoom: TAPi18n.__('hotkeys.zoom'),
+        angle: TAPi18n.__('hotkeys.ange'),
+        dragProbe: TAPi18n.__('hotkeys.dragProbe'),
+        ellipticalRoi: TAPi18n.__('hotkeys.ellipticalRoi'),
+        rectangleRoi: TAPi18n.__('hotkeys.rectangleRoi'),
+        magnify: TAPi18n.__('hotkeys.magnify'),
+        annotate: TAPi18n.__('hotkeys.annotate'),
+        stackScroll: TAPi18n.__('hotkeys.stackScroll'),
+        pan: TAPi18n.__('hotkeys.pan'),
+        length: TAPi18n.__('hotkeys.length'),
+        wwwcRegion: TAPi18n.__('hotkeys.wwwcRegion'),
+        crosshairs: TAPi18n.__('hotkeys.crosshairs')
+
     });
 
     // Functions to register the viewport commands
@@ -133,16 +157,17 @@ Meteor.startup(function() {
 
     // Register the viewport commands
     registerViewportCommands({
-        zoomIn: 'Zoom In',
-        zoomOut: 'Zoom Out',
-        zoomToFit: 'Zoom to Fit',
-        invert: 'Invert',
-        flipH: 'Flip Horizontally',
-        flipV: 'Flip Vertically',
-        rotateR: 'Rotate Right',
-        rotateL: 'Rotate Left',
-        resetViewport: 'Reset',
-        clearTools: 'Clear Tools'
+        zoomIn: TAPi18n.__('hotkeys.zoomIn'),
+        zoomOut: TAPi18n.__('hotkeys.zoomOut'),
+        zoomToFit: TAPi18n.__('hotkeys.zoomToFit'),
+        invert: TAPi18n.__('hotkeys.invert'),
+        flipH: TAPi18n.__('hotkeys.flipH'),
+        flipV: TAPi18n.__('hotkeys.flipV'),
+        rotateR: TAPi18n.__('hotkeys.rotateR'),
+        rotateL: TAPi18n.__('hotkeys.rotateL'),
+        resetViewport: TAPi18n.__('hotkeys.resetViewport'),
+        clearTools: TAPi18n.__('hotkeys.clearTools')
+
     });
 
     // Register the preset switching commands
@@ -167,37 +192,37 @@ Meteor.startup(function() {
     // Register viewport navigation commands
     OHIF.commands.set(contextName, {
         scrollDown: {
-            name: 'Scroll Down',
+            name: TAPi18n.__('hotkeys.scrollDown'),
             action: () => !isActiveViewportEmpty() && switchToImageRelative(1)
         },
         scrollUp: {
-            name: 'Scroll Up',
+            name: TAPi18n.__('hotkeys.scrollUp'),
             action: () => !isActiveViewportEmpty() && switchToImageRelative(-1)
         },
         scrollFirstImage: {
-            name: 'Scroll to First Image',
+            name: TAPi18n.__('hotkeys.scrollToFirsImage'),
             action: () => !isActiveViewportEmpty() && switchToImageByIndex(0)
         },
         scrollLastImage: {
-            name: 'Scroll to Last Image',
+            name: TAPi18n.__('hotkeys.scrollToLastImage'),
             action: () => !isActiveViewportEmpty() && switchToImageByIndex(-1)
         },
         previousDisplaySet: {
-            name: 'Previous Series',
+            name: TAPi18n.__('hotkeys.previousDisplaySet'),
             action: () => OHIF.viewerbase.layoutManager.moveDisplaySets(false),
             disabled: () => !canMoveDisplaySets(false)
         },
         nextDisplaySet: {
-            name: 'Next Series',
+            name: TAPi18n.__('hotkeys.nextDisplaySet'),
             action: () => OHIF.viewerbase.layoutManager.moveDisplaySets(true),
             disabled: () => !canMoveDisplaySets(true)
         },
         nextPanel: {
-            name: 'Next Image Viewport',
+            name: TAPi18n.__('hotkeys.nextPanel'),
             action: () => panelNavigation.loadNextActivePanel()
         },
         previousPanel: {
-            name: 'Previous Image Viewport',
+            name: TAPi18n.__('hotkeys.previousPanel'),
             action: () => panelNavigation.loadPreviousActivePanel()
         }
     }, true);
@@ -205,24 +230,24 @@ Meteor.startup(function() {
     // Register miscellaneous commands
     OHIF.commands.set(contextName, {
         toggleOverlayTags: {
-            name: 'Toggle Image Info Overlay',
+            name: TAPi18n.__('hotkeys.toggleOverlayTags'),
             action() {
                 const $dicomTags = $('.imageViewerViewportOverlay .dicomTag');
                 $dicomTags.toggle($dicomTags.eq(0).css('display') === 'none');
             }
         },
         toggleCinePlay: {
-            name: 'Play/Pause Cine',
+            name: TAPi18n.__('hotkeys.toggleCinePlay'),
             action: viewportUtils.toggleCinePlay,
             disabled: OHIF.viewerbase.viewportUtils.hasMultipleFrames
         },
         toggleCineDialog: {
-            name: 'Show/Hide Cine Controls',
+            name: TAPi18n.__('hotkeys.toggleCineDialog'),
             action: viewportUtils.toggleCineDialog,
             disabled: OHIF.viewerbase.viewportUtils.hasMultipleFrames
         },
         toggleDownloadDialog: {
-            name: 'Show/Hide Download Dialog',
+            name: TAPi18n.__('hotkeys.toggleDownloadDialog'),
             action: viewportUtils.toggleDownloadDialog,
             disabled: () => !viewportUtils.isDownloadEnabled()
         },

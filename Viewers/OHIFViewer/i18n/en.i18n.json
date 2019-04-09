@@ -1,5 +1,10 @@
 {
   "textLogo" : "Kanteron DICOM Viewer",
+  "resetToDefaults" : "Reset to Defaults",
+  "close" :"Close",
+  "save" : "Save",
+  "cancel" : "Cancel",
+
   "studyList": {
     "name": "Name",
     "date": "Date",
@@ -17,9 +22,23 @@
     "moveStageDown" : "Move Stage Down",
     "newStage" : "New Stage ",
     "removeStage" : "Remove Protocol Stage",
-    "confirmRemoveStage" : "Are you sure you would like to remove this Protocol Stage? This cannot be reversed."
-
-
+    "confirmRemoveStage" : "Are you sure you would like to remove this Protocol Stage? This cannot be reversed.",
+    "renameProtocol" : "Rename Protocol",
+    "newName" : "Enter a new name",
+    "saveProtocolAs" : "Save protocol as",
+    "deleteProtocol" : "Delete protocol",
+    "confirmDeleteProtocol" : "Are you sure you would like to remove this Protocol? This cannot be reversed.",
+    "hanging" : "Hanging",
+    "viewportSetting" : "Viewport Settings",
+    "studyMatching" : "Study Matching Rules",
+    "seriesMatching" :"Series Matching Rules",
+    "imagesMatching":"Image Matching Rules",
+    "setting" : "Setting",
+    "value" : "Value",
+    "addDisplaySetting" : "Add Display Setting",
+    "viewportSettingEdition" : "Viewport Setting Editor",
+    "showGrayScaleInverted" : "Show Grayscale Inverted",
+    "ruleEditor" : "Rule Editor"
 
   },
   "options" :{
@@ -38,6 +57,53 @@
     "loading" : "Loading...",
     "errorLoading" : "Error Loading Image",
     "errorOcurred" : "An error has occurred."
+},
+  "hotkeys":{
+    "defaultTool" : "Default tool",
+    "wwwc" : "W/L",
+    "zoom" : "Zoom",
+    "angle" : "Angle",
+    "dragProbe" : "Pixel Probe",
+    "ellipticalRoi" :"Elliptical ROI",
+    "magnify":"Magnify",
+    "annotate" : "Annotate",
+    "stackScroll" : "Scroll Stack",
+    "pan" : "Pan",
+    "length" : "Length Measurement",
+    "wwwcRegion": "W/L by Region",
+    "crosshairs" : "Crosshairs",
+    "zoomIn" : "Zoom In",
+    "zoomOut" : "Zoom Out",
+    "zoomToFit" : "Zoom to Fit",
+    "invert" : "Invert",
+    "flipH" : "Flip Horizontally",
+    "flipV" : "Flip Vertically",
+    "rotateR" : "Rotate Right",
+    "rotateL" : "Rotate Left",
+    "resetViewport" : "Reset",
+    "clearTools" : "Clear Tools",
+    "scrollDown" : "Scroll Down",
+    "scrollUp" : "Scroll Up",
+    "scrollToFirsImage" : "Scroll to First Image",
+    "scrollToLastImage" : "Scroll to Last Image",
+    "previousDisplaySet" : "Previous Series",
+    "nextDisplaySet" : "Next Series",
+    "nextPanel" : "Next Panel",
+    "previousPanel" : "Previous Panel",
+    "toggleOverlayTags" : "Toggle Image Annotations",
+    "toggleCinePlay" : "Play/Pause Cine",
+    "toggleCineDialog" : "Show/Hide Cine Controls",
+    "toggleDownloadDialog" : "Show/Hide Download Dialog",
+    "userPreferences" : "User Preferences",
+    "keyboardShortcuts" : "Keyboard Shortcuts",
+    "window/level" : "Window/Level",
+    "function" : "Function",
+    "shortcut" : "Shortcut",
+    "preset" : "Preset",
+    "description":"Description",
+    "window" : "Window",
+    "level" : "Level"
+  
   }
 
 }

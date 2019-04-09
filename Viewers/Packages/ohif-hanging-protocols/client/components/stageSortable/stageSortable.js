@@ -97,6 +97,7 @@ Template.stageSortable.helpers({
             // Find the index of the stage in the array of newly created stage IDs
             var newStageNumber = ProtocolEngine.newStageIds.indexOf(stage.id) + 1;
 
+            moment.locale("es");
             // Use Moment.js to format the createdDate of this stage relative to the
             // current time
             var dateCreatedFromNow = moment(stage.createdDate).fromNow();

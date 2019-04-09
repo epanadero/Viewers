@@ -13,7 +13,9 @@ Package.onUse(function(api) {
         'jquery',
         'stylus',
         'momentjs:moment',
-        'cultofcoders:persistent-session'
+        'cultofcoders:persistent-session',
+        'tap:i18n'
+
     ]);
 
     // OHIF dependencies
