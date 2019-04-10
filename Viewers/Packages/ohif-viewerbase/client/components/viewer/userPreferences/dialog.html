@@ -1,12 +1,12 @@
 <template name="userPreferencesDialog">
-    {{#dialogSimple (extend this class='themed' dialogClass='dialog-user-preferences modal-lg' title='User Preferences')}}
+    {{#dialogSimple (extend this class='themed' dialogClass='dialog-user-preferences modal-lg' title=(_ 'hotkeys.userPreferences'))}}
         <div class="dialog-separator-after">
             <ul class="nav nav-tabs">
                 <li role="presentation" class="{{tabClasses 'hotkeys'}}">
-                    <a href="#" data-id="hotkeys">Keyboard Shortcuts</a>
+                    <a href="#" data-id="hotkeys">{{_ 'hotkeys.keyboardShortcuts'}}</a>
                 </li>
                 <li role="presentation" class="{{tabClasses 'wwwc'}}">
-                    <a href="#" data-id="wwwc">Window/Levels</a>
+                    <a href="#" data-id="wwwc">{{_ 'hotkeys.window/level'}}</a>
                 </li>
             </ul>
         </div>
