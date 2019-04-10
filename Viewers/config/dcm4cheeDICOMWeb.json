@@ -1,21 +1,34 @@
 {
-  "servers": {
-    "dicomWeb": [
-      {
-        "name": "DCM4CHEE",
-        "wadoUriRoot": "http://localhost:8080/wado",
-        "qidoRoot": "http://localhost:8080/dcm4chee-arc/aets/DCM4CHEE/rs",
-        "wadoRoot": "http://localhost:8080/dcm4chee-arc/aets/DCM4CHEE/rs",
-        "qidoSupportsIncludeField": false,
-        "imageRendering": "wadouri",
-        "thumbnailRendering": "wadors",
-        "requestOptions": {
-          "auth": "admin:admin",
-          "logRequests": true,
-          "logResponses": false,
-          "logTiming": true
-        }
-    }],
+"servers": {
+      "dimse": [
+         {
+            "name": "DCM4CHEE_DIMSE",
+            "wadoUriRoot": "http://localhost:8080/wado",
+            "requestOptions": {
+               "auth": "admin:admin",
+               "logRequests": true,
+               "logResponses": false,
+               "logTiming": true
+            },
+            "peers": [
+               {
+                  "host": "localhost",
+                  "port": 4242,
+                  "aeTitle": "DCM4CHEE",
+                  "default": true,
+                  "supportsInstanceRetrievalByStudyUid": false
+               },
+               {
+                  "host": "0.0.0.0",
+                  "port": 11112,
+                  "aeTitle": "DCM4CHEE",
+                  "default": true,
+                  "server": true
+               }
+            ]
+         }
+
+    ],
     "dimse": [{
       "name": "DCM4CHEE_DIMSE",
       "wadoUriRoot": "http://localhost:8080/wado",
@@ -43,12 +56,23 @@
       ]
     }]
   },
-  "defaultServiceType": "dicomWeb",
-  "public": {
-    "verifyEmail": false,
-    "ui": {
-        "studyListFunctionsEnabled": true,
-        "studyListDateFilterNumDays": 1
-    }
-  }
+   "defaultServiceType": "dicomWeb",
+   "public": {
+      "verifyEmail": true,
+      "ui": {
+         "studyListFunctionsEnabled": true,
+         "leftSidebarOpen": true,
+         "leftSidebarDragAndDrop": true,
+         "displaySetNavigationLoopOverSeries": true,
+         "displaySetNavigationMultipleViewports": true,
+         "displayEchoUltrasoundWorkflow": false,
+         "autoPositionMeasurementsTextCallOuts": "TRBL",
+         "showStackLoadingProgressBar": true,
+         "cornerstoneRenderer": "webgl",
+         "sortSeriesByIncomingOrder": true,
+         "useMiddleSeriesInstanceAsThumbnail": true
+      }
+   }
+}
+
 }

@@ -24,6 +24,26 @@ if (Meteor.settings &&
     });
 }
 
+
+/*Router.onBeforeAction(function() {
+    // verifyEmail controls whether emailVerification template will be rendered or not
+    const publicSettings = Meteor.settings && Meteor.settings.public;
+    const verifyEmail = publicSettings && publicSettings.verifyEmail || false;
+
+    // Check if user is signed in or needs an email verification
+    if (!Meteor.userId() && !Meteor.loggingIn()) {
+        this.render('entrySignIn');
+    } else if (verifyEmail && Meteor.user().emails && !Meteor.user().emails[0].verified) {
+        this.render('emailVerification');
+    } else {
+        this.next();
+    }
+}, {
+    except: ['entrySignIn', 'entrySignUp', 'forgotPassword', 'resetPassword', 'emailVerification']
+});*/
+
+
+
 Router.onBeforeAction('loading');
 
 Router.route('/', function() {
