@@ -188,5 +188,11 @@
     "description":"Descripción",
     "window" : "Ventana",
     "level" : "Nivel"
+  },
+  "login" :{
+    "user" : "Usuario",
+    "password" : "Contraseña",
+    "logIn" : "Entrar"
   }
+
 }
