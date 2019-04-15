@@ -26,7 +26,7 @@ Meteor.startup(function() {
                 loadCodecsOnStartup: true,
                 initializeCodecsOnStartup: false,
                 codecsPath: OHIF.utils.absoluteUrl('packages/ohif_cornerstone/public/js/cornerstoneWADOImageLoaderCodecs.es5.js'),
-                usePDFJS: true
+                usePDFJS: false
             }
         }
     };

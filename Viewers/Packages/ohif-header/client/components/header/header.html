@@ -1,12 +1,10 @@
 <template name="header">
     <div style="min-height: 60px" class="header noselect  {{reactive headerClasses}}">
         <div class="clearfix">
-            <div class="brand pull-left">
+            <a target='_blank' class="brand pull-left" href="{{choose this.brandHref '/'}}">
                 {{>section 'brand'}}
-            </div>
+            </a>
             {{>section 'headerAfterBrand'}}
-            {{>section 'logout'}}
-
             <a href='#' class="header-menu pull-right">{{>section 'headerMenu'}}</a>
         </div>
         {{>UI.contentBlock}}

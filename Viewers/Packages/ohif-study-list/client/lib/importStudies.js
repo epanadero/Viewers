@@ -6,7 +6,7 @@ import { OHIF } from 'meteor/ohif:core';
  * @param filesToImport Files located in the client machine to import
  */
 OHIF.studylist.importStudies = filesToImport => {
-    //const numberOfFiles = filesToImport && filesToImport.length;
+    const numberOfFiles = filesToImport && filesToImport.length;
     if (!numberOfFiles) {
         return new Promise((resolve, reject) => reject('No files to upload'));
     }
@@ -32,7 +32,7 @@ OHIF.studylist.importStudies = filesToImport => {
 
     return OHIF.ui.showDialog('dialogProgress', {
         title: 'Importing Studies...',
-        //message: uploadMessage,
+        message: uploadMessage,
         total: numberOfFiles,
         task: { run: taskRunHandler }
     });

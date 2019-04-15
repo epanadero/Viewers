@@ -56,7 +56,7 @@ Router.onBeforeAction(function() {
     }
 }, {
 
-    except: ['logout','viewerStudiesWithLogin']
+    except: ['login','logout','viewerStudiesWithLogin']
 });
 
 
@@ -64,7 +64,7 @@ Router.onBeforeAction(function() {
 Router.onBeforeAction('loading');
 
 Router.route('/', function() {
-    Router.go('studylist', {}, { replaceState: true });
+    Router.go('login', {}, { replaceState: true });
 }, { name: 'home' });
 
 Router.route('/logout', function() {
@@ -88,12 +88,12 @@ Router.route('/viewer/:studyInstanceUids', function() {
     OHIF.viewerbase.renderViewer(this, { studyInstanceUids }, 'ohifViewer');
 }, { name: 'viewerStudies' });
 
-Router.route('/viewer/:studyInstanceUids/:userInstance/:passwordInstance', function() {
+Router.route('/viewer/:studyInstanceUids/user/:userInstance/password/:passwordInstance', function() {
     const studyInstanceUids = this.params.studyInstanceUids.split(';');
     const user = this.params.userInstance;
     const password = this.params.passwordInstance;
     var thisRouter=this;
-    validarUsuario(user,password)
+    var   existUser = validarUsuario(user,password)
         .then(function () {
             OHIF.viewerbase.renderViewer(thisRouter, { studyInstanceUids }, 'ohifViewer');
         })
@@ -118,15 +118,17 @@ function validarUsuario(user,password)
             Meteor.call('validateUser',{user:user,password:password,encriptado:true},
                 (error, result) => {
                     if (error) {
-                        reject(Meteor.Error(error.error, error.message));
-                    }
+                        reject(Meteor.Error('user-not-found', "Can't find user"));
+                    }else{
                         if(result) {
                             Session.setPersistent('userLogin', user);
                             resolve(true);
+                        }else{
+                            reject(Meteor.Error('user-not-found', "Can't find user"));
+                        }
                     }
                 }
             );
-
         });
 };
 
