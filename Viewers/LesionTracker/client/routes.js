@@ -3,7 +3,8 @@ import { Router } from 'meteor/clinical:router';
 import { OHIF } from 'meteor/ohif:core';
 
 Router.configure({
-    loadingTemplate: 'loading'
+    loadingTemplate: 'loading',
+    layoutTemplate: 'layout'
 });
 
 // If we are running a disconnected client similar to the StandaloneViewer
@@ -31,13 +32,13 @@ Router.onBeforeAction(function() {
     const verifyEmail = publicSettings && publicSettings.verifyEmail || false;
 
     // Check if user is signed in or needs an email verification
-    if (!Meteor.userId() && !Meteor.loggingIn()) {
+    /*if (!Meteor.userId() && !Meteor.loggingIn()) {
         this.render('entrySignIn');
     } else if (verifyEmail && Meteor.user().emails && !Meteor.user().emails[0].verified) {
         this.render('emailVerification');
-    } else {
+    } else {*/
         this.next();
-    }
+    //}
 }, {
     except: ['entrySignIn', 'entrySignUp', 'forgotPassword', 'resetPassword', 'emailVerification']
 });

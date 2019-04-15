@@ -19,7 +19,7 @@ Meteor.startup(function() {
         }
     };
 
-    cornerstoneWADOImageLoader.webWorkerManager.initialize(config);
+/*    cornerstoneWADOImageLoader.webWorkerManager.initialize(config);
 
     cornerstoneWADOImageLoader.configure({
         beforeSend: function(xhr) {
@@ -30,5 +30,8 @@ Meteor.startup(function() {
                 xhr.setRequestHeader("x-auth-token", loginToken);
             }
         }
-    });
+    });*/
+
+    cornerstoneWADOImageLoader.webWorkerManager.initialize(config);
+
 });

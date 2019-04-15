@@ -83,9 +83,9 @@ const createStacks = study => {
         const stackableInstances = [];
         series.forEachInstance(instance => {
             // All imaging modalities must have a valid value for sopClassUid (x00080016) or rows (x00280010)
-            if (!isImage(instance.getRawValue('x00080016')) && !instance.getRawValue('x00280010')) {
+            /*if (!isImage(instance.getRawValue('x00080016')) && !instance.getRawValue('x00280010')) {
                 return;
-            }
+            }*/
 
             let displaySet;
             if (isMultiFrame(instance)) {
