@@ -56,7 +56,7 @@ Router.onBeforeAction(function() {
     }
 }, {
 
-    except: ['login','logout','viewerStudiesWithLogin']
+    except: ['logout','viewerStudiesWithLogin']
 });
 
 
@@ -64,7 +64,7 @@ Router.onBeforeAction(function() {
 Router.onBeforeAction('loading');
 
 Router.route('/', function() {
-    Router.go('login', {}, { replaceState: true });
+    Router.go('studylist', {}, { replaceState: true });
 }, { name: 'home' });
 
 Router.route('/logout', function() {
@@ -88,12 +88,12 @@ Router.route('/viewer/:studyInstanceUids', function() {
     OHIF.viewerbase.renderViewer(this, { studyInstanceUids }, 'ohifViewer');
 }, { name: 'viewerStudies' });
 
-Router.route('/viewer/:studyInstanceUids/user/:userInstance/password/:passwordInstance', function() {
+Router.route('/viewer/:studyInstanceUids/:userInstance/:passwordInstance', function() {
     const studyInstanceUids = this.params.studyInstanceUids.split(';');
     const user = this.params.userInstance;
     const password = this.params.passwordInstance;
     var thisRouter=this;
-    var   existUser = validarUsuario(user,password)
+    validarUsuario(user,password)
         .then(function () {
             OHIF.viewerbase.renderViewer(thisRouter, { studyInstanceUids }, 'ohifViewer');
         })
@@ -118,17 +118,15 @@ function validarUsuario(user,password)
             Meteor.call('validateUser',{user:user,password:password,encriptado:true},
                 (error, result) => {
                     if (error) {
-                        reject(Meteor.Error('user-not-found', "Can't find user"));
-                    }else{
+                        reject(Meteor.Error(error.error, error.message));
+                    }
                         if(result) {
                             Session.setPersistent('userLogin', user);
                             resolve(true);
-                        }else{
-                            reject(Meteor.Error('user-not-found', "Can't find user"));
-                        }
                     }
                 }
             );
+
         });
 };
 
