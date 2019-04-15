@@ -13,14 +13,14 @@ Package.onUse(function(api) {
 
     api.use('ecmascript');
     api.use('standard-app-packages');
-    api.use('jquery',['client', 'server']);    
+    api.use('jquery');
     api.use('stylus');
     api.use('underscore');
     api.use('templating');
     api.use('reactive-var');
 
     // Router dependencies
-    api.use('iron:router@1.0.19',['client', 'server']);
+    api.use('clinical:router@2.0.19', 'client');
 
     // Component's library dependencies
     api.use('natestrauser:select2@4.0.1', 'client');

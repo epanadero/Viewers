@@ -5,6 +5,7 @@
 # but you can also edit it by hand.
 
 http@1.4.1
+promise@0.11.1
 stylus@2.513.13
 meteor-base@1.4.0
 mobile-experience@1.0.5
@@ -43,7 +44,6 @@ ohif:demo-mode
 ohif:user-oidc
 ohif:dicom-services
 ohif:measurement-table
-ohif:login
 
 twbs:bootstrap
 fortawesome:fontawesome

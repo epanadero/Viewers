@@ -104,12 +104,6 @@
     "window" : "Window",
     "level" : "Level"
   
-  },
-  "login" :{
-    "user" : "User",
-    "password" : "password",
-    "logIn" : "Log in"
   }
-
 
 }
