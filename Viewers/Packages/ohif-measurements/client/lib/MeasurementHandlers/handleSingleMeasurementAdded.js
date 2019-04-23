@@ -21,7 +21,7 @@ export default function ({ instance, eventData, tool }) {
     const imageAttributes = getImageAttributes(eventData.element);
     const measurement = _.extend({}, measurementData, imageAttributes, {
         measurementNumber: measurementData.measurementNumber,
-        userId: OHIF.user.getUserId(),
+        userId: Session.get("userLogin"),
         toolType
     });
 

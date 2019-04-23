@@ -1,5 +1,6 @@
 import jsPDF from 'jspdf';
 import { _ } from 'meteor/underscore';
+import { TAPi18n } from 'meteor/tap:i18n';
 
 export class BaseReport {
     constructor(options) {
@@ -47,14 +48,11 @@ export class BaseReport {
 
         // Print the logo strokes
         doc.setDrawColor(0).setLineWidth(1);
-        doc.roundedRect(marginLeft + 0.5, y + 0.5, 8, 8, 0.5, 0.5, 'D');
-        doc.roundedRect(marginLeft + 11, y + 0.5, 8, 8, 0.5, 0.5, 'D');
-        doc.roundedRect(marginLeft + 0.5, y + 11, 8, 8, 0.5, 0.5, 'D');
-        doc.roundedRect(marginLeft + 11, y + 11, 8, 8, 0.5, 0.5, 'D');
+
 
         // Print the logo text
         doc.setFont('Serif').setFontSize(16).setFontStyle('normal').setTextColor(0);
-        doc.text('Open Health Imaging Foundation', 66, y + 14);
+        doc.text(TAPi18n.__('textLogo'), 66, y + 14);
         y += 24;
 
         // Print header horizontal line

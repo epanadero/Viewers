@@ -36,7 +36,7 @@ export class HotkeysManager {
         return new Promise((resolve, reject) => {
             if (this.storeFunction) {
                 this.storeFunction.call(this, storageKey, definitions).then(resolve).catch(reject);
-            } else if (OHIF.user.userLoggedIn()) {
+            } else if (Session.get("userLogin")) {
                 OHIF.user.setData(storageKey, definitions).then(resolve).catch(reject);
             } else {
                 Session.setPersistent(storageKey, definitions);

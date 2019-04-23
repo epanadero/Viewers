@@ -25,7 +25,7 @@ Meteor.startup(function() {
     //
     if (showCountdownDialog) {
         Meteor.setInterval(function() {
-            if (Meteor.userId()) {
+            if (Session.get("userLogin")) {
                 if (activityDetected) {
                     Meteor.call('heartbeat', function(error, heartbeatTime) {
                         lastActivityDetectedTime = heartbeatTime;
@@ -67,7 +67,7 @@ Meteor.startup(function() {
     } else{
 
         Meteor.setInterval(function() {
-            if (Meteor.userId() && activityDetected) {
+            if (Session.get("userLogin") && activityDetected) {
                 Meteor.call('heartbeat');
                 activityDetected = false;
             }

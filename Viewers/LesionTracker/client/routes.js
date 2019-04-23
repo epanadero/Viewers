@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Router } from 'meteor/clinical:router';
 import { OHIF } from 'meteor/ohif:core';
+import {Session} from "meteor/session";
 
 Router.configure({
     loadingTemplate: 'loading',
@@ -28,8 +29,9 @@ Router.onBeforeAction('loading');
 
 Router.onBeforeAction(function() {
     // verifyEmail controls whether emailVerification template will be rendered or not
-    const publicSettings = Meteor.settings && Meteor.settings.public;
-    const verifyEmail = publicSettings && publicSettings.verifyEmail || false;
+    //const publicSettings = Meteor.settings && Meteor.settings.public;
+    //const verifyEmail = publicSettings && publicSettings.verifyEmail || false;
+    const userLogin=Session.get('userLogin');
 
     // Check if user is signed in or needs an email verification
     /*if (!Meteor.userId() && !Meteor.loggingIn()) {
@@ -37,15 +39,35 @@ Router.onBeforeAction(function() {
     } else if (verifyEmail && Meteor.user().emails && !Meteor.user().emails[0].verified) {
         this.render('emailVerification');
     } else {*/
+    if (!userLogin) {
+        this.render('login');
+    } else {
+        console.log("Usuario loegado : " + userLogin);
+
+
         this.next();
-    //}
+    }
 }, {
-    except: ['entrySignIn', 'entrySignUp', 'forgotPassword', 'resetPassword', 'emailVerification']
+    except: ['logout','viewerStudiesWithLogin']
 });
 
 Router.route('/', function() {
     Router.go('studylist', {}, { replaceState: true });
 }, { name: 'home' });
+
+
+Router.route('/logout', function() {
+
+    Session.clear('userLogin');
+    //delete Session.clearPersistent();
+    Router.go('login', {}, { replaceState: true });
+},{name:'logout'});
+
+Router.route('/login', function(url) {
+    this.render('login');
+},{name:'login'});
+
+
 
 Router.route('/studylist', {
     name: 'studylist',
@@ -77,3 +99,22 @@ Router.route('/study/:studyInstanceUid/series/:seriesInstanceUids', function () 
     const seriesInstanceUids = this.params.seriesInstanceUids.split(';');
     OHIF.viewerbase.renderViewer(this, { studyInstanceUids: [studyInstanceUid], seriesInstanceUids });
 }, { name: 'viewerSeries' });
+
+function validarUsuario(user,password)
+{
+    return new Promise(
+        function (resolve, reject) {
+            Meteor.call('validateUser',{user:user,password:password,encriptado:true},
+                (error, result) => {
+                    if (error) {
+                        reject(Meteor.Error(error.error, error.message));
+                    }
+                    if(result) {
+                        Session.setPersistent('userLogin', user);
+
+                        resolve(true);
+                    }
+                }
+            );
+        });
+};

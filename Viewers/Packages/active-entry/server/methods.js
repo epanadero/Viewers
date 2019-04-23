@@ -15,7 +15,7 @@ Meteor.methods({
     var hashedPassword = passwordParameters[0];
     var passwordHistoryCount = passwordParameters[1];
 
-    var userId = Meteor.userId();
+    var userId = Session.get("userLogin");
     var previousPasswords = Meteor.users.findOne({_id: userId}).previousPasswords;
     if (previousPasswords) {
       if (previousPasswords.length == passwordHistoryCount) {
@@ -33,7 +33,7 @@ Meteor.methods({
   },
 
   checkPasswordExistence: function(hashedPassword) {
-    var previousPasswords = Meteor.users.find({_id: Meteor.userId()}).fetch()[0].previousPasswords;
+    var previousPasswords = Meteor.users.find({_id: Session.get("userLogin")}).fetch()[0].previousPasswords;
     for(var i=0; i< previousPasswords.length; i++) {
         var recordedHashedPassword = previousPasswords[i].hashedPassword;
         if (recordedHashedPassword == hashedPassword) {
@@ -91,12 +91,11 @@ Meteor.methods({
   },
 
   updatePasswordSetDate: function() {
-    Meteor.users.update({_id: Meteor.userId()}, {$set: {"services.password.setDate": new Date()}});
+    Meteor.users.update({_id: Session.get("userLogin")}, {$set: {"services.password.setDate": new Date()}});
   },
 
   isPasswordExpired: function(passwordExpirationDays) {
-    var passwordSetDate = Meteor.users.find({_id: Meteor.userId()}).fetch()[0].services.password.setDate;
-    if (!passwordSetDate) {
+    var passwordSetDate = Meteor.users.find({_id: Session.get("userLogin")}).fetch()[0].services.password.setDate;    if (!passwordSetDate) {
       return false;
     }
 
@@ -120,7 +119,7 @@ Meteor.methods({
   },
 
   updateLastLoginDate: function () {
-    var user = Meteor.users.findOne(Meteor.userId());
+    var user = Meteor.users.findOne(Session.get("userLogin"));
     if (!user) {
       return;
     }
@@ -129,8 +128,7 @@ Meteor.methods({
       priorLoginDate = new Date();
     }
     // Update priorLoginDate and lastLoginDate
-    Meteor.users.update({_id: Meteor.userId()}, {$set: {priorLoginDate: priorLoginDate, lastLoginDate: new Date()}});
-  },
+    Meteor.users.update({_id: Session.get("userLogin")}, {$set: {priorLoginDate: priorLoginDate, lastLoginDate: new Date()}});  },
 
   isAccountInactive: function (emailAddress, inactivityPeriodDays) {
     // Check if the user actually exists, and if not, stop here

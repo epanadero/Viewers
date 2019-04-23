@@ -22,13 +22,13 @@ export default function ({ instance, eventData, tool, toolGroupId, toolGroup }) 
     const measurement = {
         toolType: tool.parentTool,
         measurementNumber: measurementData.measurementNumber,
-        userId: OHIF.user.getUserId(),
+        userId: Session.get("userLogin"),
         patientId: imageAttributes.patientId,
         studyInstanceUid: imageAttributes.studyInstanceUid
     };
 
     const additionalProperties = _.extend(imageAttributes, {
-        userId: OHIF.user.getUserId()
+        userId: Session.get("userLogin")
     });
 
     const childMeasurement = _.extend({}, measurementData, additionalProperties);

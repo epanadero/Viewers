@@ -1,32 +1,33 @@
 <template name="imageDownloadDialog">
     {{#dialogForm (extend this
-        title='Download High Quality Image'
+        title=(_ 'download.title')
         class='themed'
         dialogClass='modal-lg'
         formClass='form-themed'
-        confirmLabel='Download Image'
+        confirmLabel=(_ 'download.downloadImage')
         confirmCallback=instance.getConfirmCallback
-        cancelLabel='Cancel'
+        cancelLabel=(_ 'cancel')
         id='imageDownloadDialog'
         schema=instance.schema
     )}}
-        <h5>Please specify the dimensions, filename, and desired type for the output image.</h5>
+        <h5>{{_ 'download.instructions'}}</h5>
+
         <div class="card-round">
             <div class="row m-t-2">
                 <div class="col-lg-4">
                     <table class="full-width">
                         <tbody>
                             <tr>
-                                <td class="text-right p-r-1 nowrap">Image width (px)</td>
+                                <td class="text-right p-r-1 nowrap">{{_ 'download.imageWidth'}}</td>
                                 <td>{{>inputNumber key='width' min="1" max="16384"}}</td>
                                 <td class="p-l-1" rowspan="2">
-                                    <button class="btn btn-secondary js-keep-aspect {{#if keepAspect}}active{{/if}}" title="Keep aspect ratio">
+                                    <button class="btn btn-secondary js-keep-aspect {{#if keepAspect}}active{{/if}}" title={{_ 'download.keepRatio'}}>
                                         <i class="fa fa-chain{{#unless keepAspect}}-broken{{/unless}}"></i>
                                     </button>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="text-right p-r-1 nowrap">Image height (px)</td>
+                                <td class="text-right p-r-1 nowrap">{{_ 'download.imageHeigth'}}</td>
                                 <td>{{>inputNumber key='height' min="1" max="16384"}}</td>
                             </tr>
                         </tbody>
@@ -36,11 +37,11 @@
                     <table class="full-width">
                         <tbody>
                             <tr>
-                                <td class="text-right p-r-1">File name</td>
+                                <td class="text-right p-r-1">{{_ 'download.fileName'}}</td>
                                 <td>{{>inputText key='name'}}</td>
                             </tr>
                             <tr>
-                                <td class="text-right p-r-1">File type</td>
+                                <td class="text-right p-r-1">{{_ 'download.fileType'}}</td>
                                 <td>{{>inputSelect key='type' hideSearch=true}}</td>
                             </tr>
                         </tbody>
@@ -59,7 +60,7 @@
         </div>
         <div class="viewport-element hidden"></div>
         <div class="image-preview card-round m-t-2 text-center">
-            <h4 class="m-t-0">Image Preview</h4>
+            <h4 class="m-t-0">{{_ 'download.imagePreview'}}</h4>
             <img class="viewport-preview" />
         </div>
     {{/dialogForm}}

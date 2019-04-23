@@ -5,6 +5,8 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import { Tracker } from 'meteor/tracker';
 import { _ } from 'meteor/underscore';
 import { $ } from 'meteor/jquery';
+import { TAPi18n } from 'meteor/tap:i18n';
+
 
 Template.measureFlow.onCreated(() => {
     const instance = Template.instance();
@@ -16,34 +18,35 @@ Template.measureFlow.onCreated(() => {
     instance.descriptionEdit = new ReactiveVar(false);
 
     const items = [
-        'Abdomen/Chest Wall',
-        'Adrenal',
-        'Bladder',
-        'Bone',
-        'Brain',
-        'Breast',
-        'Colon',
-        'Esophagus',
-        'Extremities',
-        'Gallbladder',
-        'Kidney',
-        'Liver',
-        'Lung',
-        'Lymph Node',
-        'Mediastinum/Hilum',
-        'Muscle',
-        'Neck',
-        'Other Soft Tissue',
-        'Ovary',
-        'Pancreas',
-        'Pelvis',
-        'Peritoneum/Omentum',
-        'Prostate',
-        'Retroperitoneum',
-        'Small Bowel',
-        'Spleen',
-        'Stomach',
-        'Subcutaneous'
+        TAPi18n.__('organ.abdomen'),
+        TAPi18n.__('organ.adrenal'),
+        TAPi18n.__('organ.bladder'),
+        TAPi18n.__('organ.bone'),
+        TAPi18n.__('organ.brain'),
+        TAPi18n.__('organ.breast'),
+        TAPi18n.__('organ.colon'),
+        TAPi18n.__('organ.esophagus'),
+        TAPi18n.__('organ.extremities'),
+        TAPi18n.__('organ.gallbladder'),
+        TAPi18n.__('organ.kidney'),
+        TAPi18n.__('organ.liver'),
+        TAPi18n.__('organ.lung'),
+        TAPi18n.__('organ.lymph'),
+        TAPi18n.__('organ.mediastinum'),
+        TAPi18n.__('organ.muscle'),
+        TAPi18n.__('organ.neck'),
+        TAPi18n.__('organ.softTissue'),
+        TAPi18n.__('organ.ovary'),
+        TAPi18n.__('organ.pancreas'),
+        TAPi18n.__('organ.pelvis'),
+        TAPi18n.__('organ.peritoneum'),
+        TAPi18n.__('organ.prostate'),
+        TAPi18n.__('organ.retroperitoneum'),
+        TAPi18n.__('organ.bowel'),
+        TAPi18n.__('organ.spleen'),
+        TAPi18n.__('organ.stomach'),
+        TAPi18n.__('organ.subcutaneous')
+
     ];
 
     instance.items = [];

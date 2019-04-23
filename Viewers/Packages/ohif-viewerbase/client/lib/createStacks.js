@@ -86,7 +86,9 @@ const createStacks = study => {
             /*if (!isImage(instance.getRawValue('x00080016')) && !instance.getRawValue('x00280010')) {
                 return;
             }*/
-
+       if (!isImage(instance.getRawValue('x00080016')) && !instance.getRawValue('x00280010')) {
+                return;
+        }
             let displaySet;
             if (isMultiFrame(instance)) {
                 displaySet = makeDisplaySet(series, [ instance ]);

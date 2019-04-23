@@ -6,6 +6,7 @@ import { $ } from 'meteor/jquery';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { OHIF } from 'meteor/ohif:core';
 import { cornerstone, cornerstoneTools } from 'meteor/ohif:cornerstone';
+import { TAPi18n } from 'meteor/tap:i18n';
 
 OHIF.viewerbase.getImageDownloadDialogAnnotationTools = () => {
     return ['length', 'probe', 'simpleAngle', 'arrowAnnotate', 'ellipticalRoi', 'rectangleRoi'];
@@ -54,7 +55,7 @@ Template.imageDownloadDialog.onCreated(() => {
         },
         showAnnotations: {
             type: Boolean,
-            label: 'Show Annotations',
+            label: TAPi18n.__('download.showAnnotations'),
             defaultValue: true
         }
     });

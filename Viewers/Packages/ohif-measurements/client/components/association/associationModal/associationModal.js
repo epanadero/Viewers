@@ -130,8 +130,8 @@ Template.dialogStudyAssociation.onCreated(() => {
             // Log
             hipaaEvent = {
                 eventType: hipaaEventType,
-                userId: OHIF.user.getUserId(),
-                userName: OHIF.user.getName(),
+                userId: Session.get("userLogin"),
+                userName: Session.get("userLogin"),
                 collectionName: 'Timepoints',
                 recordId: timepointId,
                 patientId: relatedStudies[0].patientId,

@@ -27,14 +27,14 @@ const handleRequest = function() {
 
   let start = now();
   let user;
-  if (doAuth) {
+  /*if (doAuth) {
       user = authenticateUser(request);
       if (!user) {
           response.writeHead(401);
           response.end('Error: You must be logged in to perform this action.\n');
           return;
       }
-  }
+  }*/
 
   let end = now();
   const authenticationTime = end - start;

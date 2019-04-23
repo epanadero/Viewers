@@ -140,7 +140,7 @@ class WindowLevelPresetsManager {
         return new Promise((resolve, reject) => {
             if (this.storeFunction) {
                 this.storeFunction.call(this, WL_STORAGE_KEY, wlPresets).then(resolve).catch(reject);
-            } else if (OHIF.user.userLoggedIn()) {
+            } else if (Session.get("userLogin")) {
                 OHIF.user.setData(WL_STORAGE_KEY, wlPresets).then(resolve).catch(reject);
             } else {
                 Session.setPersistent(WL_STORAGE_KEY, wlPresets);

@@ -3,6 +3,7 @@ import { Session } from 'meteor/session';
 import { Tracker } from 'meteor/tracker';
 import { OHIF } from 'meteor/ohif:core';
 import { Viewerbase } from 'meteor/ohif:viewerbase';
+import { TAPi18n } from 'meteor/tap:i18n';
 
 Template.toolbarSection.helpers({
     isFinishDisabled() {
@@ -27,8 +28,8 @@ Template.toolbarSection.helpers({
                 svgLink: '/packages/ohif_viewerbase/assets/icons.svg#icon-studies',
                 svgWidth: 15,
                 svgHeight: 13,
-                bottomLabel: 'Studies'
-            }]
+                bottomLabel: TAPi18n.__('toolbar.studies')           
+                 }]
         };
     },
 
@@ -43,7 +44,7 @@ Template.toolbarSection.helpers({
                 svgLink: '/packages/ohif_viewerbase/assets/icons.svg#icon-measurements-lesions',
                 svgWidth: 18,
                 svgHeight: 10,
-                bottomLabel: 'Measurements'
+                bottomLabel: TAPi18n.__('toolbar.measurements')
             }]
         };
     },
@@ -56,7 +57,7 @@ Template.toolbarSection.helpers({
 
         targetSubTools.push({
             id: 'bidirectional',
-            title: 'Bidirectional',
+            title: TAPi18n.__('toolbar.bidirectional'),
             classes: 'imageViewerTool rm-l-3',
             svgLink: '/packages/ohif_viewerbase/assets/icons.svg#icon-tools-measure-target',
             disabled: isToolDisabled
@@ -64,7 +65,7 @@ Template.toolbarSection.helpers({
 
         targetSubTools.push({
             id: 'targetCR',
-            title: 'CR Target',
+            title: TAPi18n.__('toolbar.crTarget'),
             classes: 'imageViewerTool',
             svgLink: '/packages/ohif_viewerbase/assets/icons.svg#icon-tools-measure-target-cr',
             disabled: isToolDisabled
@@ -72,7 +73,7 @@ Template.toolbarSection.helpers({
 
         targetSubTools.push({
             id: 'targetUN',
-            title: 'UN Target',
+            title: TAPi18n.__('toolbar.unTarget'),
             classes: 'imageViewerTool',
             svgLink: '/packages/ohif_viewerbase/assets/icons.svg#icon-tools-measure-target-un',
             disabled: isToolDisabled
@@ -82,63 +83,63 @@ Template.toolbarSection.helpers({
 
         extraTools.push({
             id: 'stackScroll',
-            title: 'Stack Scroll',
+            title: TAPi18n.__('toolbar.stackScroll'),
             classes: 'imageViewerTool',
             svgLink: '/packages/ohif_viewerbase/assets/icons.svg#icon-tools-stack-scroll'
         });
 
         extraTools.push({
             id: 'resetViewport',
-            title: 'Reset',
+            title: TAPi18n.__('toolbar.reset'),
             classes: 'imageViewerCommand',
             svgLink: '/packages/ohif_viewerbase/assets/icons.svg#icon-tools-reset'
         });
 
         extraTools.push({
             id: 'rotateR',
-            title: 'Rotate Right',
+            title: TAPi18n.__('toolbar.rotateRight'),
             classes: 'imageViewerCommand',
             svgLink: '/packages/ohif_viewerbase/assets/icons.svg#icon-tools-rotate-right'
         });
 
         extraTools.push({
             id: 'flipH',
-            title: 'Flip H',
+            title: TAPi18n.__('toolbar.flipH'),
             classes: 'imageViewerCommand',
             svgLink: '/packages/ohif_viewerbase/assets/icons.svg#icon-tools-flip-horizontal'
         });
 
         extraTools.push({
             id: 'flipV',
-            title: 'Flip V',
+            title: TAPi18n.__('toolbar.flipV'),
             classes: 'imageViewerCommand',
             svgLink: '/packages/ohif_viewerbase/assets/icons.svg#icon-tools-flip-vertical'
         });
 
         extraTools.push({
             id: 'invert',
-            title: 'Invert',
+            title: TAPi18n.__('toolbar.invert'),
             classes: 'imageViewerCommand',
             svgLink: '/packages/ohif_viewerbase/assets/icons.svg#icon-tools-invert'
         });
 
         extraTools.push({
             id: 'magnify',
-            title: 'Magnify',
+            title: TAPi18n.__('toolbar.magnify'),
             classes: 'imageViewerTool',
             svgLink: '/packages/ohif_viewerbase/assets/icons.svg#icon-tools-magnify'
         });
 
         extraTools.push({
             id: 'ellipticalRoi',
-            title: 'Ellipse',
+            title: TAPi18n.__('toolbar.ellipse'),
             classes: 'imageViewerTool',
             svgLink: '/packages/ohif_viewerbase/assets/icons.svg#icon-tools-elliptical-roi'
         });
 
         extraTools.push({
             id: 'toggleDownloadDialog',
-            title: 'Download',
+            title: TAPi18n.__('toolbar.download'),
             classes: 'imageViewerCommand',
             iconClasses: 'fa fa-camera',
             active: () => $('#imageDownloadDialog').is(':visible')
@@ -146,7 +147,7 @@ Template.toolbarSection.helpers({
 
         extraTools.push({
             id: 'toggleCineDialog',
-            title: 'CINE',
+            title: TAPi18n.__('toolbar.cine'),
             classes: 'imageViewerCommand',
             iconClasses: 'fa fa-youtube-play',
             active: () => $('#cineDialog').is(':visible')
@@ -156,28 +157,28 @@ Template.toolbarSection.helpers({
 
         buttonData.push({
             id: 'zoom',
-            title: 'Zoom',
+            title: TAPi18n.__('toolbar.zoom'),
             classes: 'imageViewerTool',
             svgLink: '/packages/ohif_viewerbase/assets/icons.svg#icon-tools-zoom'
         });
 
         buttonData.push({
             id: 'wwwc',
-            title: 'Levels',
+            title: TAPi18n.__('toolbar.levels'),
             classes: 'imageViewerTool',
             svgLink: '/packages/ohif_viewerbase/assets/icons.svg#icon-tools-levels'
         });
 
         buttonData.push({
             id: 'pan',
-            title: 'Pan',
+            title: TAPi18n.__('toolbar.pan'),
             classes: 'imageViewerTool',
             svgLink: '/packages/ohif_viewerbase/assets/icons.svg#icon-tools-pan'
         });
 
         buttonData.push({
             id: 'linkStackScroll',
-            title: 'Link',
+            title: TAPi18n.__('toolbar.link'),
             classes: 'imageViewerCommand toolbarSectionButton nonAutoDisableState',
             svgLink: '/packages/ohif_viewerbase/assets/icons.svg#icon-tools-link',
             disableFunction: Viewerbase.viewportUtils.isStackScrollLinkingDisabled
@@ -185,7 +186,7 @@ Template.toolbarSection.helpers({
 
         buttonData.push({
             id: 'toggleTarget',
-            title: 'Target',
+            title: TAPi18n.__('toolbar.target'),
             classes: 'rm-l-3',
             svgLink: '/packages/ohif_viewerbase/assets/icons.svg#icon-tools-measure-target',
             disabled: isToolDisabled,
@@ -209,12 +210,53 @@ Template.toolbarSection.helpers({
 
         buttonData.push({
             id: 'toggleMore',
-            title: 'More',
+            title: TAPi18n.__('toolbar.more'),
             classes: 'rp-x-1 rm-l-3',
             svgLink: '/packages/ohif_viewerbase/assets/icons.svg#icon-tools-more',
             disabled: isToolDisabled,
             subTools: extraTools
         });
+
+
+        Template.toolbarSection.onCreated( function() {
+       const instance = Template.instance();
+        instance.path = 'viewer.studyViewer.measurements';
+        instance.saveObserver = new Tracker.Dependency();
+        instance.api = {
+                save() {
+                    // Clear signaled unsaved changes...
+                        const successHandler = () => {
+                            OHIF.ui.unsavedChanges.clear(`${instance.path}.*`);
+                            instance.saveObserver.changed();
+                        };
+
+                        // Display the error messages
+                            const errorHandler = data => {
+                            OHIF.ui.showDialog('dialogInfo', Object.assign({ class: 'themed' }, data));
+                        };
+
+                        const promise = instance.data.measurementApi.storeMeasurements();
+                    promise.then(successHandler).catch(errorHandler);
+                    OHIF.ui.showDialog('dialogLoading', {
+                            promise,
+                            text: 'Saving measurement data'
+                 });
+
+                    return promise;
+                }
+        };
+
+        instance.unsavedChangesHandler = () => {
+                const isNotDisabled = !instance.$('.js-finish-case').hasClass('disabled');
+                if (isNotDisabled && instance.progressPercent.get() === 100) {
+                    instance.api.save();
+                }
+            };
+
+            // Attach handler for unsaved changes dialog...
+                OHIF.ui.unsavedChanges.attachHandler(instance.path, 'save', instance.unsavedChangesHandler);
+    });
+
 
         return buttonData;
     }

@@ -1,5 +1,5 @@
 {
-    "textLogo" : "Visor DICOM Kanteron",
+  "textLogo" : "Visor DICOM Kanteron",
   "resetToDefaults" : "Resetear a Valores por Defecto",
   "close" :"Cerrar",
   "save" : "Guardar",
@@ -54,7 +54,15 @@
     "layout" : "Disposición",
     "more" : "Más",
     "prevStage" : "Estado previo",
-    "nextStage" : "Estado siguiente"
+    "nextStage" : "Estado siguiente",
+    "studies" :"Estudios",
+    "measurements" :"Medidas",
+    "target" : "Objetivo",
+    "unTarget" : "UN Target",
+    "crTarget" :"CR Target",
+    "bidirectional" : "Bidireccional",
+    "temp" : "Temp",
+    "link" : "Enlace"
   },
   "hanging" : {
     "protocol" : "Protocolo",
@@ -189,5 +197,56 @@
     "description":"Descripción",
     "window" : "Ventana",
     "level" : "Nivel"
+  },
+  "login" :{
+    "user" : "Usuario",
+    "password" : "Contraseña",
+    "logIn" : "Entrar"
+  },
+  "download":{
+    "title" : "Descargar Imagen de alta calidad",
+    "imageWidth" : "Ancho imagen (px)",
+    "imageHeigth" : "Altura imagen (px)",
+    "fileName" : "Nombre fichero",
+    "fileType" : "Tipo fichero",
+    "imageQuality" : "Calidad imagen (%)",
+    "showAnnotations" : "Mostrar anotaciones",
+    "imagePreview" : "Vista Previa",
+    "downloadImage" : "Descargar Imagen",
+    "instructions" : "Especifique las dimensiones, el nombre de archivo y el tipo deseado para la imagen de salida.",
+    "keepRatio" : "Mantener ratio imagen"
+  },
+  "lesionTracker" :{
+    "saveMeasures" : "Guardar medidas"
+  },
+  "organ" : {
+    "abdomen" : "Abdomen",
+    "adrenal" : "Suprarrenal",
+    "bladder": "Vejiga",
+    "bone": "Hueso",
+    "brain":"Cerebro",
+    "breast":"Pecho",
+    "colon":"Colon",
+    "esophagus":"Esófago",
+    "extremities":"Extremidades",
+    "gallbladder":"Vesícula biliar",
+    "kidney":"Riñón",
+    "liver":"Higado",
+    "lung":"Pulmón",
+    "limph":"Ganglio linfático",
+    "mediastinum":"Mediastino/Hilum",
+    "muscle":"Músculo",
+    "neck":"Cuello",
+    "softTissue":"Otro tejido blando",
+    "ovary":"Ovario",
+    "pancreas":"Pancreas",
+    "pelvis":"Pelvis",
+    "peritoneum":"Peritoneo/Omentum",
+    "prostate":"Prostata",
+    "retroperitoneum":"Retroperitoneo",
+    "bowel":"Intestino delgado",
+    "spleen":"Bazo",
+    "stomach":"Estómago",
+    "subcutaneous":"Subcutáneo"
   }
 }

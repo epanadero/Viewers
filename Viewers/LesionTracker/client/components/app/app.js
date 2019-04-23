@@ -3,45 +3,14 @@ import { Session } from 'meteor/session';
 import { Router } from 'meteor/clinical:router';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { OHIF } from 'meteor/ohif:core';
+import { TAPi18n } from 'meteor/tap:i18n';
+
 
 Template.app.onCreated(() => {
     const instance = Template.instance();
     instance.headerClasses = new ReactiveVar('');
 
-    OHIF.header.dropdown.setItems([{
-        action: OHIF.user.audit,
-        text: 'View Audit Log',
-        iconClasses: 'log',
-        iconSvgUse: 'packages/ohif_viewerbase/assets/icons.svg#log',
-        separatorAfter: true
-    }, {
-        action: () => OHIF.ui.showDialog('themeSelectorModal'),
-        text: 'Themes',
-        iconClasses: 'theme',
-        iconSvgUse: 'packages/ohif_viewerbase/assets/icons.svg#theme',
-        separatorAfter: true
-    }, {
-        action: () => OHIF.ui.showDialog('serverInformationModal'),
-        text: 'Server Information',
-        iconClasses: 'server',
-        iconSvgUse: 'packages/ohif_viewerbase/assets/icons.svg#server',
-        separatorAfter: true
-    }, {
-        action: () => OHIF.ui.showDialog('userPreferencesDialog'),
-        text: 'Preferences',
-        icon: 'fa fa-user',
-        separatorAfter: true
-    }, {
-        action: OHIF.user.changePassword,
-        text: 'Change Password',
-        iconClasses: 'password',
-        iconSvgUse: 'packages/ohif_viewerbase/assets/icons.svg#password'
-    }, {
-        action: OHIF.user.logout,
-        text: 'Logout',
-        iconClasses: 'logout',
-        iconSvgUse: 'packages/ohif_viewerbase/assets/icons.svg#logout'
-    }]);
+   
 
     instance.autorun(() => {
         const currentRoute = Router.current();
@@ -106,7 +75,7 @@ Template.app.events({
 });
 
 Template.app.helpers({
-    userName: OHIF.user.getName,
+    userName: Session.get('userLogin'),
 
     studyListToggleText() {
         const isViewer = Session.get('ViewerOpened');
@@ -114,7 +83,7 @@ Template.app.helpers({
         // Return empty if viewer was not opened yet
         if (!OHIF.utils.ObjectPath.get(OHIF, 'viewer.data.studyInstanceUids')) return;
 
-        return isViewer ? 'Study list' : 'Back to viewer';
+        return isViewer ? TAPi18n.__('studyList.studyList') : TAPi18n.__('studyList.backToViewer');
     },
 
     dasherize(text) {

@@ -192,6 +192,8 @@ export class StudyMetadata extends Metadata {
      * @returns {SeriesMetadata} Returns a SeriesMetadata instance when found or undefined otherwise.
      */
     getSeriesByUID(uid) {
+                console.log("Return instances de la serie")
+
         let found; // undefined by default...
         if (Metadata.isValidUID(uid)) {
             found = this._series.find(series => {
