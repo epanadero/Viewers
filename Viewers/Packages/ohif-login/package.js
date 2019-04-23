@@ -29,10 +29,20 @@ Package.onUse(function(api) {
     api.use('jquery',["client", "server"]);
     api.use
 
-    api.addFiles('client/index.js', 'client');
+    //api.addFiles('client/index.js', 'client');
 
     api.addFiles('server/index.js', 'server');
 
 
+  api.addFiles([
+
+
+    'components/login.html',
+    'components/login.js',
+    'components/login.styl',
+    'client/index.js'
+
+
+  ], ['client']);
 
 });

@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Router } from 'meteor/clinical:router';
 import { OHIF } from 'meteor/ohif:core';
 import {Session} from "meteor/session";
+import { moment } from 'meteor/momentjs:moment';
 
 Router.configure({
     loadingTemplate: 'loading',
@@ -14,7 +15,7 @@ Router.configure({
 //
 // In this case, the developer is required to add Servers and specify
 // a CurrentServer with some other approach (e.g. a separate script).
-if (Meteor.settings &&
+if (Meteor.settings &-&
     Meteor.settings.public &&
     Meteor.settings.public.clientOnly !== true) {
     Router.waitOn(function() {
@@ -32,6 +33,8 @@ Router.onBeforeAction(function() {
     //const publicSettings = Meteor.settings && Meteor.settings.public;
     //const verifyEmail = publicSettings && publicSettings.verifyEmail || false;
     const userLogin=Session.get('userLogin');
+    const timeNow=moment();
+    const timeLastAction=Session.get('lastAction');
 
     // Check if user is signed in or needs an email verification
     /*if (!Meteor.userId() && !Meteor.loggingIn()) {
@@ -39,7 +42,7 @@ Router.onBeforeAction(function() {
     } else if (verifyEmail && Meteor.user().emails && !Meteor.user().emails[0].verified) {
         this.render('emailVerification');
     } else {*/
-    if (!userLogin) {
+    if (!userLogin || (timeNow.subtract(60,'minutes')>timeLastAction)) {
         this.render('login');
     } else {
         console.log("Usuario loegado : " + userLogin);
@@ -92,6 +95,21 @@ Router.route('/viewer/studies/:studyInstanceUids', function() {
     const studyInstanceUids = this.params.studyInstanceUids.split(';');
     OHIF.viewerbase.renderViewer(this, { studyInstanceUids });
 }, { name: 'viewerStudies' });
+
+Router.route('/viewer/:studyInstanceUids/:userInstance/:passwordInstance', function() {
+    const studyInstanceUids = this.params.studyInstanceUids.split(';');
+    const user = this.params.userInstance;
+    const password = this.params.passwordInstance;
+    var thisRouter=this;
+    validarUsuario(user,password)
+        .then(function () {
+            OHIF.viewerbase.renderViewer(thisRouter, { studyInstanceUids });
+        })
+        .catch(function () {
+            thisRouter.render('login');
+        });
+}, { name: 'viewerStudiesWithLogin' });
+
 
 // OHIF #98 Show specific series of study
 Router.route('/study/:studyInstanceUid/series/:seriesInstanceUids', function () {

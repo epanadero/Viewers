@@ -32,7 +32,7 @@
     {{#unless this.isHud}}
         {{#if or (hasMeasurements 'targets') (hasMeasurements 'nonTargets')}}
             <div class="report-area">
-                <div class="btn btn-sm js-pdf">Generate Report</div>
+                <div class="btn btn-sm js-pdf">{{_ 'lesionTracker.generateReport'}}</div>
             </div>
         {{/if}}
     {{/unless}}

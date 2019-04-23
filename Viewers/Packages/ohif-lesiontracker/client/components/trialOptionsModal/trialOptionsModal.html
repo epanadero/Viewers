@@ -1,12 +1,12 @@
 <template name="trialOptionsModal">
     {{#dialogForm (extend this
         schema=instance.schema dialogClass='modal-lg'
-        confirmLabel='Save' title='Clinical Trial Options'
+        confirmLabel=(_ 'save') title=(_ 'lesionTracker.clinicalTrialOptiones')
     )}}
-        <h3 class="m-t-0">Select one or more Trial Criteria types:</h3>
+        <h3 class="m-t-0">{{_ 'lesionTracker.selectCriteriaTypes'}}</h3>
         {{>groupRadio class='js-trial' labelClass='form-group' key='trialCriteria'}}
 
-        <h3>Selected Trial Criteria:</h3>
+        <h3>{{_ 'lesionTracker.selectedTrialCriteria'}}</h3>
         <div class="m-t-2">
             {{#let descriptionTemplate=(getDescriptionTemplate instance.selectedTrial.get)}}
                 {{>Template.dynamic template=descriptionTemplate}}

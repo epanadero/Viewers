@@ -1,6 +1,7 @@
 import { Meteor } from "meteor/meteor";
 import { Router } from 'meteor/clinical:router';
 import { OHIF } from 'meteor/ohif:core';
+import { moment } from 'meteor/momentjs:moment';
 
 Router.configure({
     layoutTemplate: 'layout',
@@ -24,6 +25,8 @@ if (Meteor.settings &&
     });
 }
 
+console.log(Meteor.settings);
+
 
 /*Router.onBeforeAction(function() {
     // verifyEmail controls whether emailVerification template will be rendered or not
@@ -45,6 +48,28 @@ if (Meteor.settings &&
 
 
 Router.onBeforeAction('loading');
+
+/*Router.onBeforeAction(function() {
+    // verifyEmail controls whether emailVerification template will be rendered or not
+    console.log('Entra onBeforeAction');
+
+    const userLogin=Session.get('userLogin');
+    const timeNow=moment();
+    const timeLastAction=Session.get('lastAction');
+
+    // Check if user is signed in or needs an email verification
+    if (!userLogin || (timeNow.subtract(60,'minutes')>timeLastAction)) {
+        this.render('login');
+
+    } else {
+        console.log("Usuario loegado : " + userLogin);
+        this.next();
+    }
+}, {
+    except: ['logout','viewerStudiesWithLogin']
+});*/
+
+
 
 Router.route('/', function() {
     Router.go('studylist', {}, { replaceState: true });
@@ -87,3 +112,22 @@ Router.route('/IHEInvokeImageDisplay', function() {
         Router.go('studylist', {}, {replaceState: true});
     }
 });
+
+function validarUsuario(user,password)
+{
+    return new Promise(
+        function (resolve, reject) {
+            Meteor.call('validateUser',{user:user,password:password,encriptado:true},
+                (error, result) => {
+                    if (error) {
+                        reject(Meteor.Error(error.error, error.message));
+                    }
+                        if(result) {
+                            Session.setPersistent("lastAction",moment().toDate());
+                            Session.setPersistent('userLogin', user);
+                            resolve(true);
+                    }
+                }
+            );
+        });
+};

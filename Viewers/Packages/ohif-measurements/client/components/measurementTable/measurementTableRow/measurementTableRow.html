@@ -22,7 +22,7 @@
                 {{#if rowItem.location}}
                     {{getLocationLabel rowItem.location}}
                 {{else}}
-                    (No description)
+                    {{_ 'lesionTracker.noDescription'}}
                 {{/if}}
             </div>
             <div class="timepointData">
@@ -38,13 +38,13 @@
                     <svg class="edit-icon">
                         <use xlink:href={{absoluteUrl "packages/ohif_viewerbase/assets/icons.svg#icon-measurements-additional"}}></use>
                     </svg>
-                    Relabel
+                    {{_ 'lesionTracker.relabel'}}
                 </div>
                 <div class="rowAction js-delete pull-left" tabindex="1">
                     <svg class="close-icon">
                         <use xlink:href={{absoluteUrl "packages/ohif_viewerbase/assets/icons.svg#icon-ui-close"}}></use>
                     </svg>
-                    Delete
+                    {{_ 'lesionTracker.delete'}}
                 </div>
             </div>
         </div>

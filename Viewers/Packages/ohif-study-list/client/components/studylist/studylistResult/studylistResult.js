@@ -250,7 +250,7 @@ Template.studylistResult.onRendered(() => {
     const lastWeek = moment().subtract(6, 'days');
     const lastMonth = moment().subtract(29, 'days');
     const $studyDate = instance.$('#studyDate');
-    const dateFilterNumDays = OHIF.uiSettings.studyListDateFilterNumDays;
+    const dateFilterNumDays = 30;
     let startDate, endDate;
 
     if (dateFilterNumDays) {
@@ -317,7 +317,7 @@ function resetSortingColumns(instance, sortingColumn) {
 
 Template.studylistResult.events({
     'keydown input'(event, instance) {
-        if (event.which === 13) { //  Enter
+        if (event.which === 13 && event.target.id!="studyDate") { //  Enter
             search(instance);
         }
     },
@@ -328,9 +328,13 @@ Template.studylistResult.events({
 
     'change #studyDate'(event, instance) {
         let dateRange = $(event.currentTarget).val();
+        let txtStudyDate = $("#studyDate");
 
         // Remove all space chars
-        dateRange = dateRange.replace(/ /g, '');
+        // dateRange = dateRange.replace(/ /g, '');
+        if(txtStudyDate.data("lastval")!=txtStudyDate.val()){
+            txtStudyDate.data("lastval",txtStudyDate.val());
+            dateRange = dateRange.replace(/ /g, '');
 
         // Split dateRange into subdates
         if (dateRange) {
@@ -338,6 +342,7 @@ Template.studylistResult.events({
             const dates = dateRange.split('-');
             studyDateFrom = dates[0];
             studyDateTo = dates[1];
+
         } else {
             studyDateFrom = '';
             studyDateTo = '';
@@ -346,6 +351,7 @@ Template.studylistResult.events({
         if (dateRange !== '') {
             search(instance);
         }
+    }
     },
 
     'click div.sortingCell'(event, instance) {

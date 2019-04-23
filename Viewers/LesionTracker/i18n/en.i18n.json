@@ -4,6 +4,16 @@
   "close" :"Close",
   "save" : "Save",
   "cancel" : "Cancel",
+  "logout" : "Logout",
+  "docs" : "Documents",
+  "open" : "Open",
+   "logout" : "Logout",
+  "noSave" : "Don't Save",
+  "saveAndExit" : "Save and Exit!",
+  "stay" : "Stay",
+  "docs" : "Documents",
+  "open" : "Open",
+
   "studyList": {
     "name": "Name",
     "date": "Date",
@@ -217,7 +227,36 @@
       "keepRatio" : "Keep aspect ratio"
    },
    "lesionTracker" :{
-     "saveMeasures" : "Save measurements"
+      "saveMeasures" : "Save measurements",
+     "trial" : "Trial",
+     "measurements" : "Measurements",
+     "generateReport" : "Generate Report",
+     "noDescription" : "No description",
+     "relabel" : "Relabel",
+     "delete" : "Delete",
+     "clinicalTrialOptiones":"Clinical Trial Options",
+     "selectCriteriaTypes" :"Select one or more Trial Criteria types:",
+     "selectedTrialCriteria" : "Selected Trial Criteria:",
+     "baselineCheck":"Baseline Checks",
+     "recistLin1" : "Extranodal lesions must be >= 10 mm long axis AND >= double the acquisition slice thickness by CT and MR",
+     "recistLin2" : "Extranodal lesions must be >= 20 mm on chest x-ray (although x-rays rarely used for clinical trial assessment)",
+     "recistLin3" : "Nodal lesions must be >= 15 mm short axis AND >= double the acquisition slice thickness by CT and MR",
+     "recistLin4" : "Up to a max of 2 target lesions per organ",
+     "recistLin5" : "Up to a max of 5 target lesions total",
+     "recistLin6" : "Non-targets can only be assessed as 'present'",
+     "recistLin7" : "Target lesions must have measurements (cannot be assessed as CR, UN/NE, EX)",
+     "ircdLin1" : "Target lesions must be >= 10 X 10 mm AND >= double the acquisition slice thickness by CT and MR",
+     "ircdLin2" : "Up to a max of 5 target lesions per organ",
+     "ircdLin3" : "Up to a max of 10 target lesions total",
+     "ircdLin4" : "Non-targets can only be assessed as 'present'",
+     "ircdLin5" : "Target lesions must have measurements (cannot be assessed as CR, UN/NE, EX)",
+     "ircdLin6" : "New Lesion Checks for Follow-ups",
+     "ircdLin7" : "New target lesions must be >= 5 X 5 mm AND >= double the acquisition slice thickness by CT and MR",
+     "ircdLin8" : "Up to a max of 5 target lesions per organ",
+     "ircdLin9" : "Up to a max of 10 target lesions total"
+
+
+
    },
    "organ" : {
      "abdomen" : "Abdomen/Chest Wall",

@@ -21,6 +21,17 @@ function isThereSeries(studies) {
     return false;
 }
 
+Template.toolbarSection.events({
+    'click #divDocuments'(event){
+        if($('#modalAuto').css("display") != "block")
+            $("#modalDocumentos").modal('show');
+    },
+    'click .enlaceDocumento'(event){
+        const target = $(event.currentTarget);
+        window.open(target.data("url"));
+
+    }
+});
 
 Template.toolbarSection.onCreated(() => {
     const instance = Template.instance();
@@ -339,4 +350,23 @@ Template.toolbarSection.onRendered(function() {
             }
         }
     }
+
+    var numeroDocumentos=0;
+    $("#bodyModalDocuments").empty();
+    instance.data.studies[0].seriesList.forEach((serie) => {
+        if(serie.modality=="SR" || serie.modality=="DOC") {
+            $("#bodyModalDocuments").append(
+                "<div class='row' style='margin-top: 0.5em;margin-bottom: 0.5em'>" +
+                "<div class='col-lg-1 col-lg-offset-2'>"+serie.modality+"</div>"+
+                "<div class='col-lg-4'>"+serie.seriesDescription+"</div>"+
+                "<div class='col-lg-3 '>"+
+                "<button style='background-color: darkorange;color: black' class='btn btn-xs enlaceDocumento col-lg-12' data-url='http://localhost:8080/rid/IHERetrieveDocument?requestType=DOCUMENT&documentUID=" + serie.instances[0].sopInstanceUid + "&preferredContentType=application/pdf'>"+TAPi18n.__('open')+"</button> "+
+                "</div>"+
+                "</div>"
+            );
+            numeroDocumentos++;
+        }
+    });
+    $("#numberDocuments").text(numeroDocumentos);
+    
 });

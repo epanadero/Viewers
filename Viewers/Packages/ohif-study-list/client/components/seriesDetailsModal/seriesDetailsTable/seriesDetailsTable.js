@@ -35,17 +35,17 @@ Template.seriesDetailsTable.onRendered(() => {
 
     // Get series list for the study
     _.map(studies, (selectedStudy, index) => {
+        studies[index].displaySeriesLoadingText = true;
         studies[index].seriesList = [];
-        OHIF.studies.retrieveStudyMetadata(selectedStudy.studyInstanceUid).then( study => {
-            // Set series list
-            studies[index].seriesList = study.seriesList;
+        var study=OHIF.studies.retrieveStudyMetadata( selectedStudy.studyInstanceUid);
+        study.then(function (result) {
+            studies[index].seriesList = result.seriesList;
             studies[index].displaySeriesLoadingText = false;
-
-            // Update selected studies
             instance.selectedStudies.set('studies', studies);
-        });
+        })
     });
 });
+
 
 Template.seriesDetailsTable.helpers({
     selectedStudies() {
