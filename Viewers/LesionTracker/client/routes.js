@@ -4,7 +4,7 @@ import { OHIF } from 'meteor/ohif:core';
 import {Session} from "meteor/session";
 import { moment } from 'meteor/momentjs:moment';
 
-var APP_NAME=Meteor.settings.public.appNameLesionTracker;
+console.log(Meteor.settings);
 
 
 Router.configure({
@@ -57,25 +57,25 @@ Router.onBeforeAction(function() {
     except: ['logout','viewerStudiesWithLogin']
 });
 
-Router.route(APP_NAME+'/', function() {
+Router.route('/', function() {
     Router.go('studylist', {}, { replaceState: true });
 }, { name: 'home' });
 
 
-Router.route(APP_NAME+'/logout', function() {
+Router.route('/logout', function() {
 
     Session.clear('userLogin');
     //delete Session.clearPersistent();
     Router.go('login', {}, { replaceState: true });
 },{name:'logout'});
 
-Router.route(APP_NAME+'/login', function(url) {
+Router.route('/login', function(url) {
     this.render('login');
 },{name:'login'});
 
 
 
-Router.route(APP_NAME+'/studylist', {
+Router.route('/studylist', {
     name: 'studylist',
     onBeforeAction: function() {
         const next = this.next;
@@ -89,17 +89,17 @@ Router.route(APP_NAME+'/studylist', {
     }
 });
 
-Router.route(APP_NAME+'/viewer/timepoints/:timepointId', function() {
+Router.route('/viewer/timepoints/:timepointId', function() {
     const timepointId = this.params.timepointId;
     OHIF.viewerbase.renderViewer(this, { timepointId });
 }, { name: 'viewerTimepoint' });
 
-Router.route(APP_NAME+'/viewer/studies/:studyInstanceUids', function() {
+Router.route('/viewer/studies/:studyInstanceUids', function() {
     const studyInstanceUids = this.params.studyInstanceUids.split(';');
     OHIF.viewerbase.renderViewer(this, { studyInstanceUids });
 }, { name: 'viewerStudies' });
 
-Router.route(APP_NAME+'/study/:studyInstanceUid/series/:seriesInstanceUids', function () {
+Router.route('/study/:studyInstanceUid/series/:seriesInstanceUids', function () {
     const studyInstanceUids = this.params.studyInstanceUids.split(';');
     const user = this.params.userInstance;
     const password = this.params.passwordInstance;
