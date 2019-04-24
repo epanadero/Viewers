@@ -3,8 +3,11 @@ import { Router } from 'meteor/clinical:router';
 import { OHIF } from 'meteor/ohif:core';
 import { moment } from 'meteor/momentjs:moment';
 
-var APP_NAME=Meteor.settings.public.appNameVisor;
 
+console.log(Meteor.settings);
+
+
+var APP_NAME=Meteor.settings.public.appNameVisor;
 
 Router.configure({
     layoutTemplate: 'layout',
