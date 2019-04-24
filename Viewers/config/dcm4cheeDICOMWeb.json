@@ -47,6 +47,9 @@
   },
   "defaultServiceType": "dicomWeb",
   "public": {
+      "appNameVisor" : "KAV",
+      "appNameLesionTracker" : "KLS",
+
     "verifyEmail": false,
     "ui": {
         "studyListFunctionsEnabled": true,

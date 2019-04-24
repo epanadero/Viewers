@@ -30,6 +30,13 @@ Template.app.onCreated(() => {
 });
 
 Template.app.events({
+
+    'click #lnkLogout'(event,instance){
+        event.preventDefault();
+      Router.go('logout');
+    },
+
+
     'click .js-toggle-studyList'(event, instance) {
         event.preventDefault();
         event.stopPropagation();

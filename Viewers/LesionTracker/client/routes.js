@@ -4,6 +4,9 @@ import { OHIF } from 'meteor/ohif:core';
 import {Session} from "meteor/session";
 import { moment } from 'meteor/momentjs:moment';
 
+var APP_NAME=Meteor.settings.public.appNameLesionTracker;
+
+
 Router.configure({
     loadingTemplate: 'loading',
     layoutTemplate: 'layout'
@@ -54,25 +57,25 @@ Router.onBeforeAction(function() {
     except: ['logout','viewerStudiesWithLogin']
 });
 
-Router.route('/', function() {
+Router.route(APP_NAME+'/', function() {
     Router.go('studylist', {}, { replaceState: true });
 }, { name: 'home' });
 
 
-Router.route('/logout', function() {
+Router.route(APP_NAME+'/logout', function() {
 
     Session.clear('userLogin');
     //delete Session.clearPersistent();
     Router.go('login', {}, { replaceState: true });
 },{name:'logout'});
 
-Router.route('/login', function(url) {
+Router.route(APP_NAME+'/login', function(url) {
     this.render('login');
 },{name:'login'});
 
 
 
-Router.route('/studylist', {
+Router.route(APP_NAME+'/studylist', {
     name: 'studylist',
     onBeforeAction: function() {
         const next = this.next;
@@ -86,17 +89,17 @@ Router.route('/studylist', {
     }
 });
 
-Router.route('/viewer/timepoints/:timepointId', function() {
+Router.route(APP_NAME+'/viewer/timepoints/:timepointId', function() {
     const timepointId = this.params.timepointId;
     OHIF.viewerbase.renderViewer(this, { timepointId });
 }, { name: 'viewerTimepoint' });
 
-Router.route('/viewer/studies/:studyInstanceUids', function() {
+Router.route(APP_NAME+'/viewer/studies/:studyInstanceUids', function() {
     const studyInstanceUids = this.params.studyInstanceUids.split(';');
     OHIF.viewerbase.renderViewer(this, { studyInstanceUids });
 }, { name: 'viewerStudies' });
 
-Router.route('/viewer/:studyInstanceUids/:userInstance/:passwordInstance', function() {
+Router.route(APP_NAME+'/study/:studyInstanceUid/series/:seriesInstanceUids', function () {
     const studyInstanceUids = this.params.studyInstanceUids.split(';');
     const user = this.params.userInstance;
     const password = this.params.passwordInstance;

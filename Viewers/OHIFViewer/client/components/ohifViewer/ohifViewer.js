@@ -83,6 +83,13 @@ Template.ohifViewer.onCreated(() => {
 });
 
 Template.ohifViewer.events({
+
+    'click #lnkLogout'(event,instance){
+        event.preventDefault();
+        Router.go('logout');
+    },
+
+    
     'click .js-toggle-studyList'(event, instance) {
         event.preventDefault();
         const isViewer = Session.get('ViewerOpened');

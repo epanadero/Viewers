@@ -23,7 +23,7 @@ const docUriRootDefinitions = {
 
 const wadoUriRootDefinitions = {
     type: String,
-    label: 'WADO URI root',
+    label: 'DOC URI root',
     max: 1000
 };
 
@@ -306,6 +306,29 @@ export const ServerConfiguration = new SimpleSchema({
         label: 'Default Service Type',
         defaultValue: 'dicomWeb'
     },
+
+      appNameVisor: {
+        type: String,
+        label: 'Mame APP Visor',
+        optional: true
+    },
+    appNameLesionTracker: {
+        type: String,
+        label: 'Name app Lesion Tracker',
+        optional: true
+    },
+    demoUserEnabled: {
+        type: Boolean,
+        label: 'Creates demo user on startup and show TestDrive button',
+        label: 'Default Service Type',
+        defaultValue: 'dicomWeb'
+    },
+    appName: {
+        type: String,
+        label: 'Name APP IN URL'
+
+    },
+
     dropCollections: {
         type: Boolean,
         label: 'Drop database collections',

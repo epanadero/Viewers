@@ -3,6 +3,9 @@ import { Router } from 'meteor/clinical:router';
 import { OHIF } from 'meteor/ohif:core';
 import { moment } from 'meteor/momentjs:moment';
 
+var APP_NAME=Meteor.settings.public.appNameVisor;
+
+
 Router.configure({
     layoutTemplate: 'layout',
 });
@@ -71,21 +74,39 @@ Router.onBeforeAction('loading');
 
 
 
-Router.route('/', function() {
+Router.route(APP_NAME+'/', function() {
     Router.go('studylist', {}, { replaceState: true });
 }, { name: 'home' });
 
-Router.route('/studylist', function() {
+Router.route(APP_NAME+'/studylist', function() {
     this.render('ohifViewer', { data: { template: 'studylist' } });
 }, { name: 'studylist' });
 
-Router.route('/viewer/:studyInstanceUids', function() {
+Router.route(APP_NAME+'/viewer/:studyInstanceUids', function() {
     const studyInstanceUids = this.params.studyInstanceUids.split(';');
     OHIF.viewerbase.renderViewer(this, { studyInstanceUids }, 'ohifViewer');
 }, { name: 'viewerStudies' });
 
+Router.route(APP_NAME+'/logout', function() {
+
+    Session.clear('userLogin');
+    //delete Session.clearPersistent();
+    Router.go('login', {}, { replaceState: true });
+},{name:'logout'});
+
+Router.route(APP_NAME+'/login', function(url) {
+    this.render('login');
+},{name:'login'});
+
+Router.route(APP_NAME+'/viewer/:studyInstanceUids/:userInstance/:passwordInstance', function() {
+    const studyInstanceUids = this.params.studyInstanceUids.split(';');
+    const user = this.params.userInstance;
+    const password = this.params.passwordInstance;
+}, { name: 'viewerStudiesWithLogin' });
+
+
 // OHIF #98 Show specific series of study
-Router.route('/study/:studyInstanceUid/series/:seriesInstanceUids', function () {
+Router.route(APP_NAME+'/study/:studyInstanceUid/series/:seriesInstanceUids', function () {
     const studyInstanceUid = this.params.studyInstanceUid;
     const seriesInstanceUids = this.params.seriesInstanceUids.split(';');
     OHIF.viewerbase.renderViewer(this, { studyInstanceUids: [studyInstanceUid], seriesInstanceUids }, 'ohifViewer');
