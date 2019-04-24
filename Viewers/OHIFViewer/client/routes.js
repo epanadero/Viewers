@@ -96,7 +96,6 @@ Router.route('/logout', function() {
 },{name:'logout'});
 
 Router.route('/login', function(url) {
-Router.route(APP_NAME+'/login', function(url) {
     this.render('login');
 },{name:'login'});
 
