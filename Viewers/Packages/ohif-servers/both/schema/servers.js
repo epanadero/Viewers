@@ -14,6 +14,13 @@ const serverTypeDefinitions = {
     optional: true
 };
 
+const docUriRootDefinitions = {
+    type: String,
+    label: 'WADO URI root',
+    max: 1000
+};
+
+
 const wadoUriRootDefinitions = {
     type: String,
     label: 'WADO URI root',
@@ -56,6 +63,8 @@ export const DICOMWebServer = new SimpleSchema({
     name: serverNameDefinitions,
     type: serverTypeDefinitions,
     wadoUriRoot: wadoUriRootDefinitions,
+    ocUriRoot:docUriRootDefinitions,
+
     wadoRoot: {
         type: String,
         label: 'WADO root',

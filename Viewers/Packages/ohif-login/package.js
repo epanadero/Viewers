@@ -37,9 +37,9 @@ Package.onUse(function(api) {
   api.addFiles([
 
 
-    'components/login.html',
-    'components/login.js',
-    'components/login.styl',
+    'client/components/login.html',
+    'client/components/login.js',
+    'client/components/login.styl',
     'client/index.js'
 
 

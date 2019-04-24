@@ -355,7 +355,7 @@ Template.toolbarSection.onRendered(function() {
                 "<div class='col-lg-1 col-lg-offset-2'>"+serie.modality+"</div>"+
                 "<div class='col-lg-4'>"+serie.seriesDescription+"</div>"+
                 "<div class='col-lg-3 '>"+
-                    "<button style='background-color: darkorange;color: black' class='btn btn-xs enlaceDocumento col-lg-12' data-url='http://localhost:8080/rid/IHERetrieveDocument?requestType=DOCUMENT&documentUID=" + serie.instances[0].sopInstanceUid + "&preferredContentType=application/pdf'>"+TAPi18n.__('open')+"</button> "+
+                "<button style='background-color: darkorange;color: black' class='btn btn-xs enlaceDocumento col-lg-12' data-url='"+currentServer.docUriRoot+"/IHERetrieveDocument?requestType=DOCUMENT&documentUID=" + serie.instances[0].sopInstanceUid + "&preferredContentType=application/pdf'>"+TAPi18n.__('open')+"</button> "+
                 "</div>"+
             "</div>"
             );

@@ -60,3 +60,4 @@ meteortesting:mocha
 tap:i18n
 rzymek:moment-locales
 
+ohif:servers

@@ -4,6 +4,7 @@
       {
         "name": "DCM4CHEE",
         "wadoUriRoot": "http://localhost:8080/wado",
+         "docUriRoot" : "http://localhost:8080/rid",
         "qidoRoot": "http://localhost:8080/dcm4chee-arc/aets/DCM4CHEE/rs",
         "wadoRoot": "http://localhost:8080/dcm4chee-arc/aets/DCM4CHEE/rs",
         "qidoSupportsIncludeField": false,
@@ -39,7 +40,7 @@
                   "port": 11112,
                   "aeTitle": "DCM4CHEE",
                   "default": true,
-                  "server": true
+                  "server": false
                }
       ]
     }]
