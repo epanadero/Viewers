@@ -1,6 +1,6 @@
 import { OHIF } from 'meteor/ohif:core';
 import { $ } from 'meteor/jquery';
-import { Router } from 'meteor/iron:router';
+import { Router } from 'meteor/clinical:router';
 import { Promise } from 'meteor/promise';
 
 Meteor.methods({

@@ -4,9 +4,13 @@ import {Session} from 'meteor/session';
 import {ReactiveDict} from 'meteor/reactive-dict';
 import {moment} from 'meteor/momentjs:moment';
 import {OHIF} from 'meteor/ohif:core';
-import {Router} from 'meteor/iron:router';
+import { Router } from 'meteor/clinical:router';
 
 Template.login.events({
+
+    console.log('Entra Template.login.events');
+
+
     'keydown input'(event) {
         if (event.which === 13) { //  Enter
             event.preventDefault();
