@@ -8,16 +8,21 @@ import { Router } from 'meteor/clinical:router';
 
 Template.login.events({
 
-    console.log('Entra Template.login.events');
 
 
     'keydown input'(event) {
         if (event.which === 13) { //  Enter
+
+                console.log('Entra event.which === 13');
+
             event.preventDefault();
             validateLogin();
         }
     },
     'click #submitLogin'(event) {
+
+                        console.log('Entra click #submitLogin');
+
         event.preventDefault();
         validateLogin();
     },
@@ -37,9 +42,13 @@ function validateLogin() {
     Meteor.call('validateUser', {user: $('#txtUser').val(), password: $('#txtPassword').val(), encriptado: false},
         (error, result) => {
             if (error) {
+                                        console.log('Entra error' + error);
+
                 $("#divError").append(error.reason);
             }
             if (result) {
+                console.log('Entra result' + result);
+
                 Session.setPersistent('userLogin', $("#txtUser").val());
                 Session.setPersistent("lastAction",moment().toDate());
                 if (window.location.href.match(/login/))

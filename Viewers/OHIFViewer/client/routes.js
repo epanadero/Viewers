@@ -116,10 +116,17 @@ Router.route('/IHEInvokeImageDisplay', function() {
 
 function validarUsuario(user,password)
 {
+            console.log("Entra validarUsuario: " + user);
+
+    
+
     return new Promise(
         function (resolve, reject) {
             Meteor.call('validateUser',{user:user,password:password,encriptado:true},
                 (error, result) => {
+                                console.log("Entra reject(Meteor.Error(error.error, error.message " );
+
+
                     if (error) {
                         reject(Meteor.Error(error.error, error.message));
                     }

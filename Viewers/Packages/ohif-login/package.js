@@ -31,18 +31,18 @@ Package.onUse(function(api) {
 
     //api.addFiles('client/index.js', 'client');
 
-    api.addFiles('server/index.js', 'server');
+  api.addFiles([
+    'server/index.js',
+    'server/methods/validateLogin.js',
+
+  ], ['server']);
 
 
   api.addFiles([
-
-
     'client/components/login.html',
     'client/components/login.js',
     'client/components/login.styl',
     'client/index.js'
-
-
   ], ['client']);
 
 });
