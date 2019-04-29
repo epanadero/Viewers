@@ -37,7 +37,7 @@ console.log(Meteor.settings);
 
 Router.onBeforeAction('loading');
 
-Router.onBeforeAction(function() {
+/*Router.onBeforeAction(function() {
     // verifyEmail controls whether emailVerification template will be rendered or not
     console.log('Entra onBeforeAction');
 
@@ -55,7 +55,7 @@ Router.onBeforeAction(function() {
     }
 }, {
     except: ['logout','viewerStudiesWithLogin']
-});
+});*/
 
 
 
