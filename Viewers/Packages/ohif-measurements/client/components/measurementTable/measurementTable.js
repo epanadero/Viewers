@@ -2,6 +2,7 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { _ } from 'meteor/underscore';
 import { OHIF } from 'meteor/ohif:core';
+import { TAPi18n } from 'meteor/tap:i18n';
 
 Template.measurementTable.onCreated(() => {
     const instance = Template.instance();

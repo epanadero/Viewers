@@ -4,6 +4,9 @@
   "close" :"Close",
   "save" : "Save",
   "cancel" : "Cancel",
+  "measurements" :"Measurements",
+  "stydyDate" :"Study date:",
+
 
   "studyList": {
     "name": "Name",
@@ -104,6 +107,11 @@
     "window" : "Window",
     "level" : "Level"
   
+  },
+    "login" :{
+    "user" : "User",
+    "password" : "password",
+    "logIn" : "Log in"
   }
 
 }

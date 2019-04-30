@@ -5,6 +5,7 @@ import {ReactiveDict} from 'meteor/reactive-dict';
 import {moment} from 'meteor/momentjs:moment';
 import {OHIF} from 'meteor/ohif:core';
 import { Router } from 'meteor/clinical:router';
+import { TAPi18n } from 'meteor/tap:i18n';
 
 Template.login.events({
 
