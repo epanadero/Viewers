@@ -132,12 +132,6 @@ export const toolManager = {
           mouse: cornerstoneTools.scaleOverlayTool,
         });
 
-        toolManager.addTool('reload-VolumeRenderingPlugin', {
-            mouse: cornerstoneTools.reload-VolumeRenderingPlugin,
-            touch: cornerstoneTools.reload-VolumeRenderingPlugin
-        });
-
-
         // if a default tool is globally defined, make it the default tool...
         if (OHIF.viewer.defaultTool) {
             this.setDefaultTool(OHIF.viewer.defaultTool);
